@@ -12,6 +12,7 @@ specifiers:
   postcss: ^8.4.18
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-router: ^6.4.2
   react-scripts: 5.0.1
   tailwindcss: ^3.2.1
   typescript: ^4.8.4
@@ -29,6 +30,7 @@ dependencies:
   postcss: 8.4.18
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-router: 6.4.2_react@18.2.0
   react-scripts: 5.0.1_uz2ogxeagc4rbieizlfzyaazee
   tailwindcss: 3.2.1
   typescript: 4.8.4
@@ -1981,6 +1983,11 @@ packages:
       source-map: 0.7.4
       webpack: 5.74.0
       webpack-dev-server: 4.11.1_webpack@5.74.0
+    dev: false
+
+  /@remix-run/router/1.0.2:
+    resolution: {integrity: sha512-GRSOFhJzjGN+d4sKHTMSvNeUPoZiDHWmRnXfzaxrqe7dE/Nzlc8BiMSJdLDESZlndM7jIUrZ/F4yWqVYlI0rwQ==}
+    engines: {node: '>=14'}
     dev: false
 
   /@rollup/plugin-babel/5.3.1_vyv4jbhmcriklval33ak5sngky:
@@ -8135,6 +8142,16 @@ packages:
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /react-router/6.4.2_react@18.2.0:
+    resolution: {integrity: sha512-Rb0BAX9KHhVzT1OKhMvCDMw776aTYM0DtkxqUBP8dNBom3mPXlfNs76JNGK8wKJ1IZEY1+WGj+cvZxHVk/GiKw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.0.2
+      react: 18.2.0
     dev: false
 
   /react-scripts/5.0.1_uz2ogxeagc4rbieizlfzyaazee:
