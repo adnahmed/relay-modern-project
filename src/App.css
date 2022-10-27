@@ -1,7 +1,26 @@
 .App {
   text-align: center;
 }
-
+.Banner {
+  display: flex;
+}
+.BannerImage {
+  flex: 1;
+}
+.BannerGap {
+  flex: 1.5;
+}
+.BannerName {
+  flex: 1;
+  align-self: center;
+  padding: 20px;
+  font-size: xx-large;
+  border-color: blue;
+  border-width: 3pt;
+  border-radius: 20pt;
+  color: white;
+  background: blue;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
