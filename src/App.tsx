@@ -1,24 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import create from 'zustand';
+
+interface TodoState {
+  votes: number
+  addVotes: () => void
+  substractVotes: () => void
+  action: () => void
+}
+// define store
+const useStore = create<TodoState>((set, get) => ({
+  votes: 0,
+  action: () => {
+    const userVotes = get().votes
+  },
+  addVotes: () => set(state => ({votes: state.votes + 1})),
+  substractVotes: () => set(state => ({votes: state.votes - 1}))
+}));
 
 function App() {
+  const addVotes = useStore(state => state.addVotes);
+  const substractVotes = useStore(state => state.substractVotes)
+  const getVotes = useStore((state) => state.votes);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{getVotes} people have cast their votes.</h1>
+      <button onClick={addVotes}>Cast a vote</button>
+      <button onClick={substractVotes}>Delete a vote.</button>
     </div>
   );
 }
