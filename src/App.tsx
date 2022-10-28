@@ -1,17 +1,30 @@
 import "./App.css";
-import { lazy, Suspense } from "react";
-const NavBar = lazy(() => import('./NavBar'))
-const Main = lazy(() => import('./Main'));
-var App = () => {
+import React, { ReactNode, startTransition, lazy, Suspense } from "react";
+
+function App() {
   return (
-    <div className="App">
-      <Suspense fallback={<div>Loading NavBar...</div>}>
+    <div>
       <NavBar />
-      </Suspense>
-      <Suspense fallback={<div>Loading Main...</div>}>
-      <Main />
-      </Suspense>
-    </div>
+      <TitleBar />
+      </div>
   );
-};
+}
+function TitleBar() {
+
+}
+function NavBar() {
+    return (<>
+        <TitleBanner />
+        <FarmImage />
+    </>)
+}
+
+function TitleBanner() {
+    return (<>Kauser's Farm</>);
+}
+function FarmImage() {
+    return (<img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg" alt="Farm Image"></img>)
+}
 export default App;
+
+
