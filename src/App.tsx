@@ -18,10 +18,27 @@ function App() {
           <Route path="/crop/:cropName">
             <Route index element={<CropDashboard />} />
             <Route path="land-preparation-and-sowing" element={<LandPreparationAndSowing />} />
+            <Route path="*" element={<NoMatchCrop />} />
           </Route>
+          <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
     </div>
+  )
+}
+function NoMatchCrop() {
+  return (
+    <>
+    <p> No Matching Crop Found.</p>
+    </>
+  )
+}
+function NoMatch() {
+  return (
+    <>
+      <p> Nothing to see here!</p>
+      <Link to="/">Go to Homepage.</Link>
+    </>
   )
 }
 function Layout() {
@@ -34,7 +51,7 @@ function Layout() {
         <FarmTitleBanner />
         <AppBanner />
       </header>
-    <Outlet />
+      <Outlet />
     </div>
   )
 }
