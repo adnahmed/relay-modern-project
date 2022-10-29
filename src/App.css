@@ -1,9 +1,41 @@
 .App {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-  text-align: center;
-  width: 500px;
+  margin: 4pc;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.App> * {
-  border-width: 1pc;
+
+.NavbarTitle {
+  display: inline-block;
+  border-width: 1px;
+}
+
+.rowCell {
+  flex: 1 1 auto;
+}
+.NavbarImage {
+  float: right;
+  border-width: 1px;
+  border-color: greenyellow;
+  min-width: 10%;
+  max-width: 20%;
+  max-height: 10%;
+}
+
+.FarmTitleBanner {
+  margin-block-start: 1%;
+  border-width: 3px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.FarmTitleBannerName {
+  margin-block-end: 3%;
+}
+
+.AppBanner {
+  border-width: 3px;
+  margin-top: 4%;
+  font-weight: bold;
+  text-align: center;
 }
