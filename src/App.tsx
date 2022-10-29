@@ -1,7 +1,7 @@
 import './App.css'
 import React, { useRef, useState, useEffect } from 'react'
 import Select, { Options } from 'react-select'
-import { Routes, Route, Link, useParams, createRoutesFromElements } from 'react-router-dom'
+import { Routes, Route, Link, useParams, createRoutesFromElements, Outlet } from 'react-router-dom'
 import { string } from 'yargs'
 import _ from 'underscore.string'
 
@@ -12,6 +12,21 @@ interface Crop {
 function App() {
   return (
     <div className="App">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/crop/:cropName">
+            <Route index element={<CropDashboard />} />
+            <Route path="land-preparation-and-sowing" element={<LandPreparationAndSowing />} />
+          </Route>
+        </Route>
+      </Routes>
+    </div>
+  )
+}
+function Layout() {
+  return (
+    <div>
       <header>
         <nav>
           <NavBar />
@@ -19,17 +34,12 @@ function App() {
         <FarmTitleBanner />
         <AppBanner />
       </header>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="crop/:cropName" element={<CropDashboard />}>
-          <Route path="land-preparation-and-sowing" element={<LandPreparationAndSowing />}/>
-        </Route>
-      </Routes>
+    <Outlet />
     </div>
   )
 }
 function LandPreparationAndSowing() {
-  return (<div>Land Preparation and Sowing</div>);
+  return <div>Land Preparation and Sowing</div>
 }
 interface Land {
   type: string | 'total'
@@ -88,7 +98,7 @@ function CropDashboard() {
         </div>
       </div>
       Contents:
-      <ul className="content-list"/>
+      <ul className="content-list" />
       <li>
         <Link to="land-preparation-and-sowing">Land Preparation And Sowing </Link>
       </li>
