@@ -18,6 +18,12 @@ function NavBar() {
         <FarmImage />
     </>)
 }
+function TitleBar() {
+    return (
+    <>
+
+    </>);
+}
 
 function TitleBanner() {
     return (<>Kauser's Farm</>);
