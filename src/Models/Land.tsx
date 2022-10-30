@@ -1,6 +1,4 @@
-import {LandUnit} from "./LandUnit";
-
-export default interface Land {
+export interface Land {
     type: string | 'total'
     quantity?: LandQuantity
 }
@@ -8,5 +6,9 @@ export default interface Land {
 interface LandQuantity {
     value: number
     unit: LandUnit
+}
+
+export enum LandUnit {
+    acres,
 }
 
