@@ -6,12 +6,10 @@ export function Cell(props) {
             className="Cell"
             style={{
                 display: 'inline-block',
+                padding: 'auto',
                 textAlign: 'center',
-                padding: '10px 5px',
-                margin: '1px',
                 borderWidth: '1px',
-                fontWeight: props.isTextBold ? 'bold' : 'normal',
-                flex: props.flex || 'auto',
+                ...props.style, // this but for overriding properties below.
             }}
         >
             {props.value}
