@@ -7,14 +7,17 @@ interface CellRow {
   values: (string | CellRow)[]
   cellStyle?: HTMLAttributes<HTMLDivElement>
 }
-
+const cellRowStyle = (isVertical: boolean, cells: number) => {
+  return isVertical ? { gridTemplateRows: `repeat(${cells}. 1fr)` } :
+        { gridTemplateColumns: `repeat(${cells}, 1fr)`}
+}
 export function CellRow<CellRowProps>(props) {
   return (
     <div
       className="CellRow"
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(${props.values.length}, 1fr)`,
+        ...cellRowStyle(props.isVertical, props.values.length),
         ...props.style,
       }}
     >
