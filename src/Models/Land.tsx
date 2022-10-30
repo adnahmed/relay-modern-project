@@ -9,6 +9,6 @@ interface LandQuantity {
 }
 
 export enum LandUnit {
-    acres,
+    acres="Acres",
 }
 
