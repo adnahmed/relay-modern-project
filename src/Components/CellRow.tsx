@@ -1,17 +1,15 @@
 /*
 A stub interface, use react-props here.
 */
-import React, { HTMLAttributes } from 'react'
+import React from 'react'
 import { Cell } from './Cell'
-interface CellRow {
-  values: (string | CellRow)[]
-  cellStyle?: HTMLAttributes<HTMLDivElement>
-}
+
 const cellRowStyle = (isVertical: boolean, cells: number) => {
   return isVertical ? { gridTemplateRows: `repeat(${cells}. 1fr)` } :
         { gridTemplateColumns: `repeat(${cells}, 1fr)`}
 }
-export function CellRow<CellRowProps>(props) {
+// TODO: Validate props with react-props
+export function CellRow(props) {
   return (
     <div
       className="CellRow"
@@ -28,7 +26,7 @@ export function CellRow<CellRowProps>(props) {
           case 'object':
             return p
           default:
-            console.log('Unknown Object Recieved. CellRow only accepts values of type (string|CellRow)[].')
+            return console.log('Unknown Object Received. CellRow only accepts values of type (string|CellRow)[].')
         }
       })}
     </div>
