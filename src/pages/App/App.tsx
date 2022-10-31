@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Route, Routes } from 'react-router-dom'
 import { CropCard } from '../CropCard/CropCard'
@@ -12,7 +12,6 @@ import onChangeInput from '../../util/onChangeInput'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-
   return (
     <div className="App">
       {isAuthenticated ? (
@@ -32,8 +31,8 @@ function App() {
         /* Unauthenticated User */
         <Routes>
           <Route path="/">
-            <Route index element={<AuthenticationForm />} />
-            <Route path="/signup" element={<RegisterationForm />} />
+            <Route index element={<AuthenticationForm setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/signup" element={<RegisterationForm setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="*" element={<UnknownPage />} />
           </Route>
         </Routes>
@@ -42,49 +41,62 @@ function App() {
   )
 }
 
-function RegisterationForm() {
+function RegisterationForm(props) {
   const [name, setName] = useState('')
-  
-  return (<>
-    <form action="post">
-      <fieldset>
-        <legend>Registeration Form</legend>
-        <label>
-          Name
-          <input type="text" value={name} onChange={onChangeInput(setName)} required placeholder="Enter your Name" />
-        </label>
-      </fieldset>
-    </form>
-    <Link to="/"><button>Go Back</button></Link>
-  </>)
+
+  return (
+    <>
+      <form action="post">
+        <fieldset>
+          <legend>Registeration Form</legend>
+          <label>
+            Name
+            <input type="text" value={name} onChange={onChangeInput(setName)} required placeholder="Enter your Name" />
+          </label>
+        </fieldset>
+      </form>
+      <Link to="/">
+        <button type="button">Go Back</button>
+      </Link>
+    </>
+  )
 }
 
 function UnknownPage() {
-  return (<div>Uh oh! You've landed in an unfamiliar terriotory
-    <Link to="/"><button>Go to a Safe Place</button></Link>
-  </div>)
+  return (
+    <div>
+      Uh oh! You've landed in an unfamiliar terriotory
+      <Link to="/">
+        <button type="button">Go to a Safe Place</button>
+      </Link>
+    </div>
+  )
 }
 
-function AuthenticationForm() {
+function AuthenticationForm(props) {
   const [password, setPassword] = useState('')
   const [userID, setUserID] = useState('')
   return (
-    <form method="get">
+    <form method="get" onSubmit={() => props.setIsAuthenticated(true)}>
       <fieldset>
         <legend>Authentication</legend>
         <label>
           Email / Username
-          <input placeholder="Enter your Email or Username" name="UserID" onChange={onChangeInput(setUserID)} required value={userID} type="text"></input>
+          <input placeholder="Enter your Email or Username" name="UserID" onChange={onChangeInput(setUserID)} required value={userID} autoFocus type="text"></input>
         </label>
         <label>
           Password
           <input placeholder="Enter your password" name="User Password" onChange={onChangeInput(setPassword)} required value={password} type="password"></input>
         </label>
       </fieldset>
-      <button>Login</button>
+      <button type="submit">
+        Login
+      </button>
       <div>
         <p>Don't yet have an account?</p>
-        <Link to="/signup"><button>Sign Up</button></Link>
+        <Link to="/signup">
+          <button type="button">Sign Up</button>
+        </Link>
       </div>
     </form>
   )
