@@ -4,11 +4,9 @@ import Select from 'react-select'
 import { CropYear } from '../../Models/Crop'
 import { Land, LandUnit } from '../../Models/Land'
 import { CellRow } from '../../Components/CellRow'
-import _ from 'underscore.string'
-import { useLandStore } from '../../Models/LandStore'
 export function CropCard() {
-  const [lastUpdated, setLastUpdated] = useState(new Date())
-  const [sowingDate, setSowingDate] = useState(new Date())
+  const [lastUpdated] = useState(new Date())
+  const [sowingDate] = useState(new Date())
   let urlParams = useParams()
   const varietyOptions = [
     { value: 'Mozeeka', label: 'Mozeeka' },
@@ -18,8 +16,8 @@ export function CropCard() {
   const handleChange = (selectedVariety) => {
     setSelectedVariety(selectedVariety)
   }
-  const [land, setLand] = useState<Land>({ type: 'total', quantity: { value: 20, unit: LandUnit.acres } })
-  const [lands, setLands] = useState<Land[]>([
+  const [land] = useState<Land>({ type: 'total', quantity: { value: 20, unit: LandUnit.acres } })
+  const [lands] = useState<Land[]>([
     { type: 'Best Practices', quantity: { value: 5, unit: LandUnit.acres } },
     { type: 'Conventional', quantity: { value: 15, unit: LandUnit.acres } },
   ])
@@ -75,13 +73,13 @@ export function CropCard() {
         <Link to="nutrients">Nutrients</Link>
       </li>
       <li>
-        <Link to="integrated-pest-and-diseasemanagement">Integrated Pest and Disease Management</Link>
+        <Link to="integrated-pest-and-disease-management">Integrated Pest and Disease Management</Link>
       </li>
       <li>
         <Link to="harvesting">Harvesting</Link>
       </li>
       <li>
-        <Link to="postharvest">Post Harvest</Link>
+        <Link to="post-harvest">Post Harvest</Link>
       </li>
       <li>
         <Link to="marketing">Marketing</Link>
