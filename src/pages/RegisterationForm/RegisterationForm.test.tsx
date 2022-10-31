@@ -1,15 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 import RegisterationForm from './RegisterationForm';
 
 describe('<RegisterationForm />', () => {
-  let component;
+    let component;
 
-  beforeEach(() => {
-    component = shallow(<RegisterationForm />);
-  });
+    beforeEach(() => {
+        component = shallow(<RegisterationForm setIsAuthenticated={() => {
+        }}/>);
+    });
 
-  test('It should mount', () => {
-    expect(component.length).toBe(1);
-  });
+    test('It should mount', () => {
+        expect(component.length).toBe(1);
+    });
 });
