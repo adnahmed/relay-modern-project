@@ -9,6 +9,7 @@ import { Dashboard } from '../Dashboard/Dashboard'
 import { Layout } from '../../Layout/Layout'
 import { NoMatch } from '../../Components/NoMatch'
 import onChangeInput from '../../util/onChangeInput'
+import UnknownPage from "../UnknownPage/UnknownPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -59,17 +60,6 @@ function RegisterationForm(props) {
         <button type="button">Go Back</button>
       </Link>
     </>
-  )
-}
-
-function UnknownPage() {
-  return (
-    <div>
-      Uh oh! You've landed in an unfamiliar terriotory
-      <Link to="/">
-        <button type="button">Go to a Safe Place</button>
-      </Link>
-    </div>
   )
 }
 
