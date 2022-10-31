@@ -5,7 +5,7 @@
   "testLibrary": "Enzyme",
   "component": {
     "default": {
-      "path": "src/components",
+      "path": "src/pages",
       "withStyle": true,
       "withTest": true,
       "withStory": false,
