@@ -10,6 +10,7 @@ import { Layout } from '../../Layout/Layout'
 import { NoMatch } from '../../Components/NoMatch'
 import onChangeInput from '../../util/onChangeInput'
 import UnknownPage from "../UnknownPage/UnknownPage";
+import RegisterationForm from "../RegisterationForm/RegisterationForm";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -39,27 +40,6 @@ function App() {
         </Routes>
       )}
     </div>
-  )
-}
-
-function RegisterationForm(props) {
-  const [name, setName] = useState('')
-
-  return (
-    <>
-      <form action="post">
-        <fieldset>
-          <legend>Registeration Form</legend>
-          <label>
-            Name
-            <input type="text" value={name} onChange={onChangeInput(setName)} required placeholder="Enter your Name" />
-          </label>
-        </fieldset>
-      </form>
-      <Link to="/">
-        <button type="button">Go Back</button>
-      </Link>
-    </>
   )
 }
 
