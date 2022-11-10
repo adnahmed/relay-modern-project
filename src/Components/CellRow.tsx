@@ -14,9 +14,9 @@ export function CellRow(props) {
     <div
       className="CellRow"
       style={{
+          ...cellRowStyle(props.isVertical, props.values.length),
+          ...props.style,
         display: 'grid',
-        ...cellRowStyle(props.isVertical, props.values.length),
-        ...props.style,
       }}
     >
       {props.values.map((p) => {
