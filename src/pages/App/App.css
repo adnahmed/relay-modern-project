@@ -29,7 +29,6 @@ label {
 }
 
 .FarmTitleBanner {
-  margin-block-start: 1%;
   border-width: 3px;
   font-weight: bold;
   text-align: center;
@@ -38,12 +37,13 @@ label {
 }
 
 .FarmTitleBannerName {
-  margin-block-end: 3%;
+  margin-block-end: 1%;
 }
 
 .AppBanner {
   border-width: 3px;
-  margin-top: 4%;
+  margin-top: 2%;
+  margin-bottom: 1%;
   font-weight: bold;
   text-align: center;
 }
