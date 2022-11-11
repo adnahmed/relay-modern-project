@@ -1,32 +1,29 @@
-import {Crop, CropYear} from "../../Models/Crop";
+import {Crop} from "../../Models/Crop";
 import {Link} from "react-router-dom";
 import React from "react";
+import useCropsStore from "../../Models/useCropsStore";
 
 export function Dashboard() {
-    // TODO: Use Date Ranges here
-    const crops: Crop[] = [
-        {
-            name: 'Potato',
-            image: new URL('https://image.com/potato'),
-        },
-        {
-            name: 'Maize',
-            image: new URL('https://image.com/maize'),
-        },
-        {
-            name: 'Wheat',
-            image: new URL('https://image.com/wheat'),
-        },
-    ]
+    const crops = useCropsStore(state => state.crops)
+    const addCrop = useCropsStore()
     return (
         <div className="dashboard">
-            <div className="CropSelection">
-                <b>Crops:</b>
+            <button onClick={}>
+                <b>Add New</b>
+            </button>
+            <div className="CropSelection" style={{display: 'flex', flexDirection: 'column'}}>
+                <div style={{display: 'flex'}}>
+                    <b style={{flex: '1'}}>Crops</b>
+                    <b style={{flex: '2'}}>Cropping Year Start</b>
+                    <b style={{flex: '2'}}>Cropping Year End</b>
+                </div>
                 {crops.map((crop) => {
                     return (
-                        <Link to={'/crop/' + crop.name}>
-                            <li>{crop.name}</li>
-                        </Link>
+                        <div style={{display: 'flex'}}>
+                            <Link style={{flex: '1'}} to={'/crop/' + crop.name}>
+                                {crop.name}
+                            </Link>
+                        </div>
                     )
                 })}
             </div>

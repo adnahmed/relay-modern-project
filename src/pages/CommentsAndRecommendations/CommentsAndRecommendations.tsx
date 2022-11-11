@@ -1,9 +1,9 @@
 import React, {FC, ReactElement, useState} from 'react';
 import './CommentsAndRecommendations.scss';
-import CommentOrRecommendation from "../../Interfaces/CommentOrRecommendation";
 import CommentOrRecommmendationBox from "../../Components/CommentOrRecommmendationBox/CommentOrRecommmendationBox";
 import create from 'zustand'
 import persist from 'zustand/middleware'
+import CommentOrRecommendation from "../../Interfaces/CommentOrRecommendation";
 
 interface CommentsAndRecommendationsProps {
     topic: ReactElement

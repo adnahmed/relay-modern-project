@@ -1,6 +1,5 @@
 import React from "react";
 import {useFarmStore} from "../../Models/Farm";
-import {CropYear} from "../../Models/Crop";
 
 export function NavBar() {
     const farmLogo = useFarmStore(state => state.logo)
@@ -27,7 +26,6 @@ export function AppBanner(props) {
         <>
             <div className="AppBanner">
                 <h1> KESAN DIARY </h1>
-                <CropYear />
             </div>
         </>
     )

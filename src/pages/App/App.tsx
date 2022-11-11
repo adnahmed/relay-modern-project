@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import {Link, Navigate, redirect, Route, Routes, useNavigate} from 'react-router-dom'
 import {CropCard} from '../CropCard/CropCard'
 import {LandPreparationAndSowingCard} from '../LandPreparationAndSowingCard/LandPreparationAndSowingCard'
-import {NoMatchCrop} from '../../Models/Crop'
 import {Dashboard} from '../Dashboard/Dashboard'
 import {Layout} from '../../Layout/Layout'
 import {NoMatch} from '../../Components/NoMatch'
@@ -16,6 +15,9 @@ import Seed from "../Seed/Seed";
 import Irrigation from "../Irrigation/Irrigation";
 import FinanceOrCommentCard from "../FinanceOrCommentCard/FinanceOrCommendCard";
 import {useFarmStore} from "../../Models/Farm";
+import General from "../General/General";
+import NoMatchCrop from "../NoMatchCrop/NoMatchCrop";
+import {CropYear} from "../../Components/CropYear";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -28,8 +30,9 @@ function App() {
                         if (!isAuthenticated) return redirect("/authentication")
                     }}>
                         <Route index element={<Dashboard/>}/>
-                        <Route path="/crop/:cropName">
+                        <Route path="/crop/:cropName" element={<CropYear />}>
                             <Route index element={<CropCard/>}/>
+                            <Route path="general" element={<General />} />
                             <Route path="land-preparation-and-sowing/*"
                                    element={<FinanceOrCommentCard element={<LandPreparationAndSowingCard/>}/>}/>
                             <Route path="inputs">

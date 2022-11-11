@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react';
 import './CommentOrRecommmendationBox.scss';
-import CommentOrRecommendation from "../../Interfaces/CommentOrRecommendation";
-import {comment} from "postcss";
+import CommentOrRecommendation from "../../Interfaces/CommentOrRecommendation"
 
 interface CommentOrRecommmendationBoxProps {
     comment: CommentOrRecommendation
