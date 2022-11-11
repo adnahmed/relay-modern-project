@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import './AuthenticationForm.scss';
 import onChangeInput from "../../util/onChangeInput";
-import {Link} from "react-router-dom";
+import {Link, redirect} from "react-router-dom";
 
 interface AuthenticationFormProps {
     setIsAuthenticated: (b: boolean) => void
@@ -10,8 +10,9 @@ interface AuthenticationFormProps {
 const AuthenticationForm: FC<AuthenticationFormProps> = (props) => {
     const [password, setPassword] = useState('')
     const [userID, setUserID] = useState('')
+
     return (
-        <form method="get" onSubmit={() => props.setIsAuthenticated(true)}>
+        <form method="get">
             <fieldset>
                 <legend>Authentication</legend>
                 <label>
@@ -25,15 +26,11 @@ const AuthenticationForm: FC<AuthenticationFormProps> = (props) => {
                            required value={password} type="password"></input>
                 </label>
             </fieldset>
-            <button type="submit">
-                Login
-            </button>
-            <div>
-                <p>Don't yet have an account?</p>
-                <Link to="/signup">
-                    <button type="button">Sign Up</button>
+            <button type="submit" onClick={() => props.setIsAuthenticated(true)}>
+                <Link to="/">
+                    Submit
                 </Link>
-            </div>
+            </button>
         </form>
     )
 };

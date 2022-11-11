@@ -1,4 +1,5 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 
 export interface Crop {
     name: string
@@ -16,9 +17,13 @@ export function NoMatchCrop() {
 export function CropYear() {
     const yearStart = 2021
     const yearEnd = 2022
+    let urlParams = useParams()
     return (
         <div className="YearRange">
-            Year: {yearStart}-{yearEnd}
+            <div style={{ display: 'flex', flex: '1', justifyContent: 'space-between'}}>
+            <p>Cropping Year: {yearStart}-{yearEnd}</p>
+                <p>Crop: {urlParams.cropName}</p>
+            </div>
         </div>
     )
 }

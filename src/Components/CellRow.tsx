@@ -5,7 +5,7 @@ import React from 'react'
 import { Cell } from './Cell'
 
 const cellRowStyle = (isVertical: boolean, cells: number) => {
-  return isVertical ? { gridTemplateRows: `repeat(${cells}. 1fr)` } :
+  return isVertical ? { gridTemplateRows: `repeat(${cells}, 1fr)` } :
         { gridTemplateColumns: `repeat(${cells}, 1fr)`}
 }
 // TODO: Validate props with react-props

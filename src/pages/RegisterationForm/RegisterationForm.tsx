@@ -8,17 +8,37 @@ interface RegisterationFormProps {
 }
 
 const RegisterationForm: FC<RegisterationFormProps> = (props) => {
-    const [name, setName] = useState('')
+    const [firstName, setFirstName] = useState('')
     return (
         <>
             <form action="post">
                 <fieldset>
                     <legend>Registeration Form</legend>
                     <label>
-                        Name
-                        <input type="text" value={name} onChange={onChangeInput(setName)} required
-                               placeholder="Enter your Name"/>
+                        Farm Name
+                        <input type="text" value={firstName} onChange={onChangeInput(setFirstName)} required
+                               placeholder="Enter your First Name"/>
                     </label>
+                    <label>
+                        Farm ID
+                        <input type="text" value={firstName} onChange={onChangeInput(setFirstName)} required
+                               placeholder="Enter your First Name"/>
+                    </label>
+                    <label>
+                        <input type="text" value={firstName} onChange={onChangeInput(setFirstName)} required
+                               placeholder="Enter your First Name"/>
+                    </label>
+                    <label>
+                        First Name
+                        <input type="text" value={firstName} onChange={onChangeInput(setFirstName)} required
+                               placeholder="Enter your First Name"/>
+                    </label>
+                    <label>
+                        First Name
+                        <input type="text" value={firstName} onChange={onChangeInput(setFirstName)} required
+                               placeholder="Enter your First Name"/>
+                    </label>
+
                 </fieldset>
             </form>
             <Link to="/">

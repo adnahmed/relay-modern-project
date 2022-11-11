@@ -20,9 +20,8 @@ export function Dashboard() {
     ]
     return (
         <div className="dashboard">
-            <CropYear/>
             <div className="CropSelection">
-                Crops:
+                <b>Crops:</b>
                 {crops.map((crop) => {
                     return (
                         <Link to={'/crop/' + crop.name}>

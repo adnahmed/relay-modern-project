@@ -7,7 +7,6 @@ import { CellRow } from '../../Components/CellRow'
 export function CropCard() {
   const [lastUpdated] = useState(new Date())
   const [sowingDate] = useState(new Date())
-  let urlParams = useParams()
   const varietyOptions = [
     { value: 'Mozeeka', label: 'Mozeeka' },
     { value: 'Somali', label: 'Somali' },
@@ -23,15 +22,14 @@ export function CropCard() {
   ])
   return (
     <div className="dashboard">
-      <CropYear />
-      <div className="CropName">Crop: {urlParams.cropName}</div>
+        <b>General Information</b>
       <div className="Date LastUpdated">
         Updated On:
-        {lastUpdated.toString()}
+        {lastUpdated.toLocaleDateString()}
       </div>
       <div className="Date SowingDate">
         Date of Sowing:
-        {sowingDate.toString()}
+        {sowingDate.toLocaleDateString()}
       </div>
       <div className="CropVariety">
         Variety:
@@ -66,19 +64,13 @@ export function CropCard() {
       <li>
         <Link to="inputs">Inputs</Link>
       </li>
-      <li>
-        <Link to="irrigation">Irrigation</Link>
-      </li>
-      <li>
-        <Link to="nutrients">Nutrients</Link>
-      </li>
-      <li>
+        <li>
+            <Link to="harvesting-and-post-harvest">Harvesting</Link>
+        </li>
+        <li>
         <Link to="integrated-pest-and-disease-management">Integrated Pest and Disease Management</Link>
       </li>
-      <li>
-        <Link to="harvesting">Harvesting</Link>
-      </li>
-      <li>
+     <li>
         <Link to="post-harvest">Post Harvest</Link>
       </li>
       <li>
