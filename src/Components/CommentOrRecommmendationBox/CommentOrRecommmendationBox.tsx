@@ -1,16 +1,17 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import './CommentOrRecommmendationBox.scss';
-import CommentOrRecommendation from "../../Interfaces/CommentOrRecommendation"
+import CommentOrRecommendation from "../../Models/CommentOrRecommendation"
+import useCommentsOrRecommendationsStore from "../../Models/useCommentsOrRecommendationsStore";
 
 interface CommentOrRecommmendationBoxProps {
+    isPrinting: boolean
     comment: CommentOrRecommendation
-    setComments
-    comments: CommentOrRecommendation[]
 }
-
 
 const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props) => {
     const [isEditing, setIsEditing] = useState(false)
+    const editCOR = useCommentsOrRecommendationsStore(state => state.edit)
+    const deleteCOR = useCommentsOrRecommendationsStore(state => state.delete)
     const [value, setValue] = useState('')
     const onChange = (e) => {
         setValue(e.target.value)
@@ -19,23 +20,17 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
         setValue(props.comment.value)
         setIsEditing(true)
     }
-
     const saveComment = () => {
-        props.comment.value = value
+        editCOR(props.comment.id, {...props.comment, value: value})
         setIsEditing(false)
     }
 
     const deleteComment = () => {
-        const index = props.comments.indexOf(props.comment)
-        if (index == -1) return false;
-        props.setComments((comments) => {
-            return [...comments.splice(0, index),...comments.splice(index+1)]
-        })
-        return true;
+        deleteCOR(props.comment.id)
     }
 
     return (
-        <div style={{display: 'grid', gridTemplateColumns: '1fr 8fr 1fr 1fr'}}>
+        <div style={{display: 'grid', gridTemplateColumns: '1fr 8fr 1fr 1fr 1fr'}}>
             <p style={{marginRight: '1em'}}>{props.comment.date.toLocaleDateString()}</p>
             {
                 isEditing ?
@@ -44,11 +39,17 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
                         <button onClick={saveComment} style={{color: 'blue'}}>Save</button>
                         <button onClick={() => setIsEditing(false)} style={{color: 'red'}}>Cancel</button>
                     </> :
-                    <>
-                        <pre style={{wordBreak: 'break-all'}}>{props.comment.value}</pre>
-                        <button onClick={editComment} style={{color: 'blue'}}>Edit</button>
-                        <button onClick={deleteComment} style={{color: 'red'}}>Delete</button>
-                    </>
+                    !props.isPrinting ?
+                        <>
+                            <pre style={{
+                                whiteSpace: 'pre-wrap',
+                                wordWrap: 'break-word',
+                                maxWidth: '400px'
+                            }}>{props.comment.value}</pre>
+                            <button onClick={editComment} style={{color: 'blue'}}>Reply</button>
+                            <button id='edit-button' onClick={editComment} style={{color: 'blue'}}>Edit</button>
+                            <button onClick={deleteComment} style={{color: 'red'}}>Delete</button>
+                        </> : <></>
             }
         </div>
     );
