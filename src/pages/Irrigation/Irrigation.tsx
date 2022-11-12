@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import './Irrigation.scss';
 import {CellRow} from "../../Components/CellRow";
-import CommonCostTableHeader from "../CommonCostTableHeader/CommonCostTableHeader";
 
 interface IrrigationProps {
 }

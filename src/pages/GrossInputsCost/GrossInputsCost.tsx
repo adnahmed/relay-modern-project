@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import './GrossInputsCost.scss';
 import {CellRow} from "../../Components/CellRow";
-import TableHead from '../../Components/TableHead';
 import Seed from "../Seed/Seed";
 import Irrigation from "../Irrigation/Irrigation";
 import LaborManagement from "../LaborManagement/LaborManagement";

@@ -1,6 +1,6 @@
 import './App.css'
-import React, {ReactChildren, useEffect, useState} from 'react'
-import {Link, Navigate, Outlet, redirect, Route, Routes, useNavigate} from 'react-router-dom'
+import React, {useState} from 'react'
+import {redirect, Route, Routes} from 'react-router-dom'
 import {CropCard} from '../CropCard/CropCard'
 import {LandPreparation} from '../LandPreparation/LandPreparation'
 import {Dashboard} from '../Dashboard/Dashboard'
@@ -32,7 +32,6 @@ import AuthenticationMethods from "../AuthenticationMethods/AuthenticationMethod
 import IndexPage from "../IndexPage/IndexPage";
 import TableHead from "../../Components/TableHead";
 import {HarvestDate} from "../../Components/HarvestDate";
-import {AppBanner, Logo} from "../NavBar/Logo";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)

@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
 import './AuthenticationMethods.scss';
 import {Link} from "react-router-dom";
-import {AppBanner} from "../NavBar/Logo";
-import {Layout} from "../../Layout/Layout";
 
 interface AuthenticationMethodsProps {
 }

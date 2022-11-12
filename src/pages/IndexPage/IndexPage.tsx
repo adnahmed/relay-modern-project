@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import './IndexPage.scss';
 import {useFarmStore} from "../../Models/Farm";
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 import logo from './diary.webp'
 import {Logo} from "../NavBar/Logo";
 
@@ -11,16 +11,14 @@ interface IndexPageProps {
 const IndexPage: FC<IndexPageProps> = () => {
     const farmName = useFarmStore(state => state.name)
     const farmAddress = useFarmStore(state => state.address)
-    const farmLogo = useFarmStore(state => state.logo)
     const setFarmAddress = useFarmStore(state => state.setFarmAddress)
     const setFarmName = useFarmStore(state => state.setFarmName)
-    const setFarmLogo = useFarmStore(state => state.setFarmLogo)
     const [goNext, setGoNext] = useState(false)
     useEffect(() => {
         if (farmName !== '' && farmAddress !== '') {
             setGoNext(true)
         } else setGoNext(false)
-    })
+    }, [goNext, farmAddress, farmName])
     return (
         <div className="IndexPage">
             <Logo style={{float: 'right', width: '150px', height: '150px'}}/>

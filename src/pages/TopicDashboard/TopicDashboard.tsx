@@ -1,7 +1,7 @@
 import React, {FC, ReactElement} from 'react';
 import './TopicDashboard.scss';
-import {Link, Routes, useResolvedPath} from "react-router-dom";
-import {Route, useParams} from "react-router";
+import {Link, Routes} from "react-router-dom";
+import {Route} from "react-router";
 import CommentsAndRecommendations from "../CommentsAndRecommendations/CommentsAndRecommendations";
 import Information from "../Information/Information";
 

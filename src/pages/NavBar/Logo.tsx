@@ -2,7 +2,6 @@ import React from "react";
 import {useFarmStore} from "../../Models/Farm";
 import logo from './logo.webp'
 export function Logo(props) {
-    const farmLogo = useFarmStore(state => state.logo)
     return (
         <div style={{ width: '80px', height: '80px', ...props.style}} className="NavbarImage">
             <img src={logo} alt="KMAF"/>

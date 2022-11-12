@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import React, {FC, useEffect, useState} from "react";
+import React, {useState} from "react";
 import useCropsStore from "../../Models/useCropsStore";
 import onChangeInput from "../../util/onChangeInput";
 import potato from './potato.jpg'

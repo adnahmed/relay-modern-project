@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import './NutrientManagement.scss';
-import CommonCostTableHeader from "../CommonCostTableHeader/CommonCostTableHeader";
 import {CellRow} from "../../Components/CellRow";
 
 interface NutrientManagementProps {
