@@ -1,7 +1,5 @@
-import create from "zustand";
-import {persist} from "zustand/middleware";
-import {Crops} from "./Crop";
+import {Crop} from "./Crop";
+import {createStore} from "./CRUDValueStore";
 
-export default create<Crops>()(persist((set) => ({
-    crops: [],
-})))
+export default createStore<Crop>("CropStore");
+
