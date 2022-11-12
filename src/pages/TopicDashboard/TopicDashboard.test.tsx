@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import FinanceOrCommendCard from './FinanceOrCommendCard';
+import TopicDashboard from './TopicDashboard';
 
 describe('<DataDashboard />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<FinanceOrCommendCard element={<></>} />);
+    component = shallow(<TopicDashboard element={<></>} />);
   });
 
   test('It should mount', () => {
