@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import HarvestAndPostHarvest from './HarvestAndPostHarvest';
+import PostHarvesting from './PostHarvesting';
 
-describe('<HarvestAndPostHarvest />', () => {
+describe('<PostHarvesting />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<HarvestAndPostHarvest />);
+    component = shallow(<PostHarvesting />);
   });
 
   test('It should mount', () => {
