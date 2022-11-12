@@ -1,5 +1,6 @@
 export default interface CommentOrRecommendation {
-    key: string
+    id: string
     date: Date
     value: string
+    topic: string
 }
