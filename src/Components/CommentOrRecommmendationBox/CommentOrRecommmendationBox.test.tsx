@@ -6,7 +6,6 @@ describe('<CommentOrRecommmendationBox />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<CommentOrRecommmendationBox comment={{key: '1', date: new Date(), value: ''}} comments={[]} setComments={() => true} />);
   });
 
   test('It should mount', () => {

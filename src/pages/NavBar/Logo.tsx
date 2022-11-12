@@ -1,11 +1,11 @@
 import React from "react";
 import {useFarmStore} from "../../Models/Farm";
-
-export function NavBar() {
+import logo from './logo.webp'
+export function Logo(props) {
     const farmLogo = useFarmStore(state => state.logo)
     return (
-        <div className="NavbarImage">
-            <img src={farmLogo} alt="KMAF"/>
+        <div style={{ width: '80px', height: '80px', ...props.style}} className="NavbarImage">
+            <img src={logo} alt="KMAF"/>
         </div>
     )
 }
@@ -14,8 +14,8 @@ export function FarmTitleBanner(props) {
     const farmName = useFarmStore(state => state.name)
     return (
         <>
-            <div className="FarmTitleBanner">
-                <div className="FarmTitleBannerName">{farmName}</div>
+            <div style={{background: 'lightseagreen'}} className="FarmTitleBanner">
+                <div style={{color: 'white'}} className="FarmTitleBannerName">{farmName}</div>
             </div>
         </>
     )
@@ -24,7 +24,7 @@ export function FarmTitleBanner(props) {
 export function AppBanner(props) {
     return (
         <>
-            <div className="AppBanner">
+            <div style={{background: 'lightseagreen'}} className="AppBanner">
                 <h1> KESAN DIARY </h1>
             </div>
         </>

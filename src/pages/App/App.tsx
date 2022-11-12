@@ -1,6 +1,6 @@
 import './App.css'
 import React, {ReactChildren, useEffect, useState} from 'react'
-import {Link, Navigate, redirect, Route, Routes, useNavigate} from 'react-router-dom'
+import {Link, Navigate, Outlet, redirect, Route, Routes, useNavigate} from 'react-router-dom'
 import {CropCard} from '../CropCard/CropCard'
 import {LandPreparation} from '../LandPreparation/LandPreparation'
 import {Dashboard} from '../Dashboard/Dashboard'
@@ -32,6 +32,7 @@ import AuthenticationMethods from "../AuthenticationMethods/AuthenticationMethod
 import IndexPage from "../IndexPage/IndexPage";
 import TableHead from "../../Components/TableHead";
 import {HarvestDate} from "../../Components/HarvestDate";
+import {AppBanner, Logo} from "../NavBar/Logo";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -78,7 +79,7 @@ function App() {
                 <Routes>
                     <Route path="/">
                         <Route index element={<IndexPage/>}/>
-                        <Route path="/authentication">
+                        <Route path="/authentication" element={<Layout />}>
                             <Route index element={<AuthenticationMethods/>}/>
                             <Route path="signin"
                                    element={<AuthenticationForm setIsAuthenticated={setIsAuthenticated}/>}/>

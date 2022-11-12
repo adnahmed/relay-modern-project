@@ -14,19 +14,24 @@ const AuthenticationForm: FC<AuthenticationFormProps> = (props) => {
     return (
         <form method="get">
             <fieldset>
-                <legend>Authentication</legend>
-                <label>
-                    Email / Username
-                    <input placeholder="Enter your Email or Username" name="UserID" onChange={onChangeInput(setUserID)}
-                           required value={userID} autoFocus type="text"></input>
-                </label>
-                <label>
-                    Password
-                    <input placeholder="Enter your password" name="User Password" onChange={onChangeInput(setPassword)}
-                           required value={password} type="password"></input>
-                </label>
+                <legend style={{marginBottom: '2em', marginTop: '3em'}}><b>Authentication</b></legend>
+                <div style={{ display: 'flex', flexDirection: 'column'}}>
+                    <label>
+                        <p>Email / Username</p>
+                        <input placeholder="Enter your Email or Username" name="UserID"
+                               onChange={onChangeInput(setUserID)}
+                               required value={userID} autoFocus type="text"></input>
+                    </label>
+                    <label>
+                    <p>Password</p>
+                        <input placeholder="Enter your password" name="User Password"
+                               onChange={onChangeInput(setPassword)}
+                               required value={password} type="password"></input>
+                    </label>
+                </div>
             </fieldset>
-            <button type="submit" onClick={() => props.setIsAuthenticated(true)}>
+            <button type="submit" style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px', marginTop: '1em'}}
+                    onClick={() => props.setIsAuthenticated(true)}>
                 <Link to="/">
                     Submit
                 </Link>

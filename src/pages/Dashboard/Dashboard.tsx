@@ -1,8 +1,10 @@
-import {Crop} from "../../Models/Crop";
 import {Link} from "react-router-dom";
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import useCropsStore from "../../Models/useCropsStore";
 import onChangeInput from "../../util/onChangeInput";
+import potato from './potato.jpg'
+import maize from './maize.jpg'
+import wheat from './wheat.webp'
 
 export function Dashboard() {
     const crops = useCropsStore(state => state.values)
@@ -17,39 +19,53 @@ export function Dashboard() {
             setShowNewCropForm(false)
         }
     }
-
     return (
         <div className="dashboard">
-            <button onClick={addNewCrop}>
-                <b style={{color: 'blue'}}>Add New Crop</b>
-            </button>
+            {
+                !showNewCropForm ?
+                    <button style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px', textAlign: 'center', marginRight: '3em', paddingBottom: '1em' }} onClick={addNewCrop}>
+                        <b style={{color: 'blue'}}>New Crop</b>
+                    </button> : <></>
+            }
             {
                 showNewCropForm
                     ?
                     <>
-                        <label>
-                            Name:
-                            <input value={cropName} onChange={onChangeInput(setCropName)}/>
+                        <label style={{display: 'inline-block'}}>
+                            Crop Name:
+                            <input style={{borderWidth: '3px'}} value={cropName} onChange={onChangeInput(setCropName)}/>
                         </label>
-                        {/*<label>*/}
-                        {/*    Crop Image:*/}
-                        {/*    <input type="file" accept={".png, .jpg, .jpeg"} src={cropImageSrc}/>*/}
-                        {/*</label>*/}
+                        <button style={{color: 'blue', display: 'inline-block', borderWidth: '1px', padding: '4px'}}
+                                onClick={addNewCrop}>Save
+                        </button>
                     </>
-                    :
-                    <div className="CropSelection" style={{display: 'flex', flexDirection: 'column'}}>
-                        <div style={{display: 'flex'}}>
-                            <b style={{flex: '1'}}>Crops</b>
-                        </div>
-                        {crops.map(crop => (
-                            <div style={{display: 'flex'}}>
-                                <Link style={{flex: '1'}} to={'/crop/' + crop.name}>
-                                    {crop.name}
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                    : <></>
             }
+            <div className="CropSelection" style={{display: 'flex', flexDirection: 'column'}}>
+                <div style={{display: 'flex'}}>
+                    <b style={{flex: '1', color: 'green', fontSize: 'xxx-large'}}>Crops</b>
+                </div>
+                {crops.map(crop => (
+                    <div id='dashboard-table' style={{display: 'flex'}}>
+                        <div id='dashboard-table-row' style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignContent: 'space-between',
+                            flex: '1',
+                            maxWidth: '300px',
+                            alignItems: 'center'
+                        }}>
+                            <Link style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px', textAlign: 'center', marginRight: '3em'}}
+                                  to={'/crop/' + crop.name}>
+                                {crop.name}
+                            </Link>
+                            <img style={{display: 'inline', borderWidth: '1px', maxHeight: '200px'}}
+                                 alt={crop.name + ' Image'}
+                                 src={crop.name.toLowerCase() === "potato" ? potato : crop.name.toLowerCase() === "wheat" ? wheat : crop.name.toLowerCase() === "maize" ? maize : (crop.name + " Image")}/>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

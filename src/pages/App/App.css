@@ -20,12 +20,6 @@ label {
 }
 
 .NavbarImage {
-  float: right;
-  border-width: 1px;
-  border-color: greenyellow;
-  min-width: 10%;
-  max-width: 20%;
-  max-height: 10%;
 }
 
 .FarmTitleBanner {

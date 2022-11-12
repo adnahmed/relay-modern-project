@@ -31,7 +31,7 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
 
     return (
         <div style={{display: 'grid', gridTemplateColumns: '1fr 8fr 1fr 1fr 1fr'}}>
-            <p style={{marginRight: '1em'}}>{props.comment.date.toLocaleDateString()}</p>
+            {/*<p style={{marginRight: '1em'}}>{props.comment.date.toLocaleDateString()}</p>*/}
             {
                 isEditing ?
                     <>
