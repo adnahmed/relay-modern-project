@@ -6,8 +6,7 @@ describe('<CommentsAndRecommendations />', () => {
     let component;
 
     beforeEach(() => {
-        const topic = <p>Topic</p>
-        component = shallow(<CommentsAndRecommendations topic={topic} />);
+        component = shallow(<CommentsAndRecommendations topic="topic" />);
     });
 
     test('It should mount', () => {

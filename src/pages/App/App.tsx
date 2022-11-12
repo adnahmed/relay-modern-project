@@ -1,23 +1,37 @@
 import './App.css'
-import React, {useEffect, useState} from 'react'
+import React, {ReactChildren, useEffect, useState} from 'react'
 import {Link, Navigate, redirect, Route, Routes, useNavigate} from 'react-router-dom'
 import {CropCard} from '../CropCard/CropCard'
-import {LandPreparationAndSowingCard} from '../LandPreparationAndSowingCard/LandPreparationAndSowingCard'
+import {LandPreparation} from '../LandPreparation/LandPreparation'
 import {Dashboard} from '../Dashboard/Dashboard'
 import {Layout} from '../../Layout/Layout'
 import {NoMatch} from '../../Components/NoMatch'
 import UnknownPage from "../UnknownPage/UnknownPage";
-import RegisterationForm from "../RegisterationForm/RegisterationForm";
+import RegistrationForm from "../RegisterationForm/RegisterationForm";
 import AuthenticationForm from "../AuthenticationForm/AuthenticationForm";
-import HarvestAndPostHarvest from "../HarvestAndPostHarvest/HarvestAndPostHarvest";
 import InputsCrop from "../InputsCrop/InputsCrop";
 import Seed from "../Seed/Seed";
 import Irrigation from "../Irrigation/Irrigation";
-import FinanceOrCommentCard from "../FinanceOrCommentCard/FinanceOrCommendCard";
-import {useFarmStore} from "../../Models/Farm";
+import TopicDashboard from "../TopicDashboard/TopicDashboard";
 import General from "../General/General";
 import NoMatchCrop from "../NoMatchCrop/NoMatchCrop";
 import {CropYear} from "../../Components/CropYear";
+import Sowing from "../Sowing/Sowing";
+import LaborManagement from "../LaborManagement/LaborManagement";
+import IntegratedPestManagement from "../IntegratedPestManagement/IntegratedPestManagement";
+import IntegratedDiseaseManagement from "../IntegratedDiseaseManagement/IntegratedDiseaseManagement";
+import IntegratedWeedManagement from "../IntegratedWeedManagement/IntegratedWeedManagement";
+import NutrientManagement from "../NutrientManagement/NutrientManagement";
+import GrossInputsCost from "../GrossInputsCost/GrossInputsCost";
+import Harvesting from "../Harvesting/Harvesting";
+import PostHarvesting from "../PostHarvesting/PostHarvesting";
+import Marketing from "../Marketing/Marketing";
+import AllCosts from "../AllCosts/AllCosts";
+import EconomicAnalysis from "../EconomicAnalysis/EconomicAnalysis";
+import AuthenticationMethods from "../AuthenticationMethods/AuthenticationMethods";
+import IndexPage from "../IndexPage/IndexPage";
+import TableHead from "../../Components/TableHead";
+import {HarvestDate} from "../../Components/HarvestDate";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -30,18 +44,30 @@ function App() {
                         if (!isAuthenticated) return redirect("/authentication")
                     }}>
                         <Route index element={<Dashboard/>}/>
-                        <Route path="/crop/:cropName" element={<CropYear />}>
+                        <Route path="/crop/:cropName" element={<CropYear/>}>
                             <Route index element={<CropCard/>}/>
-                            <Route path="general" element={<General />} />
-                            <Route path="land-preparation-and-sowing/*"
-                                   element={<FinanceOrCommentCard element={<LandPreparationAndSowingCard/>}/>}/>
-                            <Route path="inputs">
+                            <Route path="general" element={<General/>}/>
+                            <Route path="land-preparation/*" element={<TopicDashboard element={<TableHead><LandPreparation/></TableHead>}/>}/>
+                            <Route path="sowing/*" element={<TopicDashboard element={<TableHead><Sowing/></TableHead>}/>}/>
+                            <Route path="inputs/*">
                                 <Route index element={<InputsCrop/>}/>
-                                <Route path="seed/*" element={<FinanceOrCommentCard element={<Seed/>}/>}/>
-                                <Route path="irrigation/*" element={<FinanceOrCommentCard element={<Irrigation/>}/>}/>
+                                <Route path="seed/*" element={<TopicDashboard element={<TableHead><Seed/></TableHead>}/>}/>
+                                <Route path="irrigation/*" element={<TopicDashboard element={<TableHead><Irrigation/></TableHead>}/>}/>
+                                <Route path="labor-management/*" element={<TopicDashboard element={<TableHead><LaborManagement/></TableHead>}/>}/>
+                                <Route path="integrated-pest-management/*" element={<TopicDashboard element={<TableHead><IntegratedPestManagement/></TableHead>}/>}/>
+                                <Route path="integrated-disease-management/*" element={<TopicDashboard element={<TableHead><IntegratedDiseaseManagement/></TableHead>}/>}/>
+                                <Route path="integrated-weed-management/*" element={<TopicDashboard element={<TableHead><IntegratedWeedManagement/></TableHead>}/>}/>
+                                <Route path="nutrient-management/*" element={<TopicDashboard element={<TableHead><NutrientManagement/></TableHead>}/>}/>
+                                <Route path="gross-inputs-cost/*" element={<TopicDashboard element={<TableHead><GrossInputsCost/></TableHead>}/>}/>
                                 <Route path="*" element={<NoMatch/>}/>
                             </Route>
-                            <Route path="harvesting-and-post-harvest" element={<HarvestAndPostHarvest/>}/>
+                            <Route path="harvesting/*" element={<HarvestDate />}>
+                                <Route path="*" index element={<TopicDashboard element={<TableHead><Harvesting/></TableHead>}/>}/>
+                            </Route>
+                            <Route path="post-harvesting-and-storage/*" element={<TopicDashboard element={<TableHead><PostHarvesting/></TableHead>}/>}/>
+                            <Route path="marketing/*" element={<TopicDashboard element={<TableHead><Marketing/></TableHead>}/>}/>
+                            <Route path="all-costs/*" element={<TopicDashboard element={<TableHead><AllCosts/></TableHead>}/>}/>
+                            <Route path="economic-analysis/*" element={<TopicDashboard element={<EconomicAnalysis/>}/>}/>
                             <Route path="*" element={<NoMatchCrop/>}/>
                         </Route>
                         <Route path="*" element={<NoMatch/>}/>
@@ -57,7 +83,7 @@ function App() {
                             <Route path="signin"
                                    element={<AuthenticationForm setIsAuthenticated={setIsAuthenticated}/>}/>
                             <Route path="signup"
-                                   element={<RegisterationForm setIsAuthenticated={setIsAuthenticated}/>}/>
+                                   element={<RegistrationForm setIsAuthenticated={setIsAuthenticated}/>}/>
                             <Route path="*" element={<UnknownPage/>}/>
                         </Route>
                         <Route path="*" element={<UnknownPage/>}/>
@@ -68,52 +94,4 @@ function App() {
     )
 }
 
-const AuthenticationMethods = () => {
-    return (<>
-        <Link to="signin">Login</Link>
-        <p>Don't yet have an account?</p>
-        <Link to="signup">
-            <button type="button">Sign Up</button>
-        </Link>
-    </>)
-}
-
-
-const IndexPage = () => {
-    const farmName = useFarmStore(state => state.name)
-    const farmAddress = useFarmStore(state => state.address)
-    const farmLogo = useFarmStore(state => state.logo)
-    const setFarmAddress = useFarmStore(state => state.setFarmAddress)
-    const setFarmName = useFarmStore(state => state.setFarmName)
-    const setFarmLogo = useFarmStore(state => state.setFarmLogo)
-    const [goNext, setGoNext] = useState(false)
-    useEffect(() => {
-        if (farmName !== '' && farmAddress !== '') {
-            setGoNext(true)
-        } else setGoNext(false)
-    })
-    return (
-        <div>
-            <img src={farmLogo} style={{width: '100px', height: '100px', float: 'right', borderWidth: '1px'}}
-                 alt="KMAF"/>
-            <form style={{clear: 'left'}}>
-                <label>
-                    <p>Farm Name</p>
-                    <input value={farmName} required style={{width: '100%'}}
-                           placeholder="Please enter your Farm Name:"
-                           onChange={setFarmName}></input>
-                </label>
-                <label>
-                    Farm Address
-                    <input value={farmAddress} required style={{width: '100%'}}
-                           placeholder="Please enter your Farm Address:"
-                           onChange={setFarmAddress}></input>
-                </label>
-                <br/>
-                <button><Link to={goNext ? "/authentication" : "#"}>Go Next</Link></button>
-            </form>
-            <h1 style={{margin: '3em', textAlign: 'center', width: '100%', fontWeight: 'bold'}}>KESAN DIARY</h1>
-        </div>
-    )
-}
 export default App

@@ -25,27 +25,23 @@ const InputsCrop: FC<InputsCropProps> = () => {
                 </li>
                 <li>
                     <a>
-                        <Link to="labor">Labor</Link>
+                        <Link to="labor-management">Labor Management</Link>
+                    </a>
+                </li>
+                <li>
+                    <Link to="integrated-pest-management">Integrated Pest Management</Link>
+                </li>
+                <li>
+                    <Link to="integrated-disease-management">Integrated Disease Management</Link>
+                </li>
+                <li>
+                    <a>
+                        <Link to="integrated-weed-management">Integrated Weed Management</Link>
                     </a>
                 </li>
                 <li>
                     <a>
-                        <Link to="weedicide">Weedicide</Link>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <Link to="pesticide">Pesticide</Link>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <Link to="fertilizer">Fertilizer</Link>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <Link to="micronutrients">Mirconutirents</Link>
+                        <Link to="nutrient-management">Nutrient Management</Link>
                     </a>
                 </li>
                 <li>
