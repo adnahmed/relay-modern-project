@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import './AuthenticationForm.scss';
 import onChangeInput from "../../util/onChangeInput";
-import {Link, redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 interface AuthenticationFormProps {
     setIsAuthenticated: (b: boolean) => void

@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import HarvestAndPostHarvest from './HarvestAndPostHarvest';
+import IndexPage from './IndexPage';
 
-describe('<HarvestAndPostHarvest />', () => {
+describe('<IndexPage />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<HarvestAndPostHarvest />);
+    component = shallow(<IndexPage />);
   });
 
   test('It should mount', () => {

@@ -14,7 +14,6 @@ const irrigationTable = [
 ]
 const Irrigation: FC<IrrigationProps> = () => (
     <div className="Irrigation">
-        <CommonCostTableHeader/>
         {irrigationTable.map((val) => {
             return <CellRow values={[val, <CellRow values={['', '']}/>, <CellRow values={['', '']}/>]}/>
         })}

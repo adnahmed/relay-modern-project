@@ -10,25 +10,28 @@ export function CropCard() {
                 <Link to="general">General Information</Link>
             </li>
             <li>
-                <Link to="land-preparation-and-sowing">Land Preparation And Sowing </Link>
+                <Link to="land-preparation">Land Preparation</Link>
+            </li>
+            <li>
+                <Link to="sowing">Sowing</Link>
             </li>
             <li>
                 <Link to="inputs">Inputs</Link>
             </li>
             <li>
-                <Link to="harvesting-and-post-harvest">Harvesting</Link>
+                <Link to="harvesting">Harvesting</Link>
             </li>
             <li>
-                <Link to="integrated-pest-and-disease-management">Integrated Pest and Disease Management</Link>
-            </li>
-            <li>
-                <Link to="post-harvest">Post Harvest</Link>
+                <Link to="post-harvesting-and-storage">Post Harvest And Storage</Link>
             </li>
             <li>
                 <Link to="marketing">Marketing</Link>
             </li>
             <li>
                 <Link to="all-costs">All Costs</Link>
+            </li>
+            <li>
+                <Link to="economic-analysis">Economic Analysis</Link>
             </li>
         </div>
     )
