@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import  {FC, useEffect} from 'react';
 import './IndexPage.scss';
 import {Link} from "react-router-dom";
 import logo from './diary.webp'
@@ -13,12 +13,10 @@ const IndexPage: FC<IndexPageProps> = () => {
     const farmAddress = useFarmStore(state => state.address)
     const setFarmAddress = useFarmStore(state => state.setFarmAddress)
     const setFarmName = useFarmStore(state => state.setFarmName)
-    const [goNext, setGoNext] = useState(false)
     useEffect(() => {
-        if (farmName !== '' && farmAddress !== '') {
-            setGoNext(true)
-        } else setGoNext(false)
-    }, [goNext, farmAddress, farmName])
+        setFarmName({target: { value: 'Kauser Model Agriculture Farm'}})
+        setFarmAddress({target: { value: 'Jhambra Sharqi, Mianwali'}})
+    })
     return (
         <div className="IndexPage">
             <Logo style={{float: 'right', width: '150px', height: '150px'}}/>
@@ -26,7 +24,7 @@ const IndexPage: FC<IndexPageProps> = () => {
                 <form style={{flex: '1'}}>
                     <label style={{borderRadius: '1em', marginBottom: '1em'}}>
                         <p>Farm Name</p>
-                        <input value={farmName} required style={{
+                        <input value={farmName} style={{
                             width: '100%',
                             background: 'lightseagreen',
                             color: 'white',
@@ -37,14 +35,14 @@ const IndexPage: FC<IndexPageProps> = () => {
                     </label>
                     <label style={{borderRadius: '1em'}}>
                         Farm Address
-                        <input value={farmAddress} required
+                        <input value={farmAddress} 
                                style={{width: '100%', background: 'lightseagreen', color: 'white'}}
                                placeholder="Please enter your Farm Address:"
                                onChange={setFarmAddress}></input>
                     </label>
                     <br/>
                     <button style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px'}}><Link
-                        to={goNext ? "/authentication" : "#"}>Go Next</Link></button>
+                        to={"/authentication"}>Go Next</Link></button>
                 </form>
             </div>
             <h1 style={{textAlign: 'center', width: '100%', fontWeight: 'bold', fontSize: "2em"}}>KESAN DIARY</h1>
