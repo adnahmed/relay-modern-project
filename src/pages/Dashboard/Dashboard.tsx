@@ -5,13 +5,13 @@ import onChangeInput from "../../util/onChangeInput";
 import potato from './potato.jpg'
 import maize from './maize.jpg'
 import wheat from './wheat.webp'
+import GlowyButton from "../GlowyButton/GlowyButton";
 
 export function Dashboard() {
     const crops = useCropsStore(state => state.values)
     const [showNewCropForm, setShowNewCropForm] = useState(false)
     const [cropName, setCropName] = useState('')
     const addCrop = useCropsStore(state => state.add)
-    // const [cropImageSrc, setCropImageSrc] = useState('')
     const addNewCrop = () => {
         if (!showNewCropForm) setShowNewCropForm(true)
         else {
@@ -19,13 +19,17 @@ export function Dashboard() {
             setShowNewCropForm(false)
         }
     }
+
     return (
         <div className="dashboard">
             {
                 !showNewCropForm ?
-                    <button style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px', textAlign: 'center', marginRight: '3em', paddingBottom: '1em' }} onClick={addNewCrop}>
-                        <b style={{color: 'blue'}}>New Crop</b>
-                    </button> : <></>
+                    <button onClick={addNewCrop}>
+                        <GlowyButton>
+                            <b style={{color: 'blue'}}>Add New Crop</b>
+                        </GlowyButton>
+                    </button>
+                    : <></>
             }
             {
                 showNewCropForm
@@ -35,9 +39,12 @@ export function Dashboard() {
                             Crop Name:
                             <input style={{borderWidth: '3px'}} value={cropName} onChange={onChangeInput(setCropName)}/>
                         </label>
-                        <button style={{color: 'blue', display: 'inline-block', borderWidth: '1px', padding: '4px'}}
-                                onClick={addNewCrop}>Save
+                        <button onClick={addNewCrop}>
+                            <GlowyButton>
+                                Save
+                            </GlowyButton>
                         </button>
+
                     </>
                     : <></>
             }
@@ -55,10 +62,12 @@ export function Dashboard() {
                             maxWidth: '300px',
                             alignItems: 'center'
                         }}>
-                            <Link style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px', textAlign: 'center', marginRight: '3em'}}
-                                  to={'/crop/' + crop.name}>
-                                {crop.name}
-                            </Link>
+                            <GlowyButton>
+                                <Link
+                                    to={'/crop/' + crop.name}>
+                                    {crop.name}
+                                </Link>
+                            </GlowyButton>
                             <img style={{display: 'inline', borderWidth: '1px', maxHeight: '200px'}}
                                  alt={crop.name + ' Image'}
                                  src={crop.name.toLowerCase() === "potato" ? potato : crop.name.toLowerCase() === "wheat" ? wheat : crop.name.toLowerCase() === "maize" ? maize : (crop.name + " Image")}/>
@@ -69,3 +78,4 @@ export function Dashboard() {
         </div>
     )
 }
+

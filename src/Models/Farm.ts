@@ -3,19 +3,16 @@ import {persist} from 'zustand/middleware'
 
 export interface Farm {
     name: string,
+    owner: string,
     address: string,
     logo: string,
-    setFarmName: (string) => void,
-    setFarmAddress: (string) => void
-    setFarmLogo: (string) => void
+    totalLand: number,
+    machinery: {one: string, two: string, three: string, four: string}
+    setFarmName: (event) => void
+    setFarmOwner: (event) => void
+    setFarmAddress: (event) => void
+    setFarmLogo: (event) => void
+    setFarmTotalLand: (event) => void
+    setFarmMachinery: (num, value) => void
 }
 
-export const useFarmStore = create<Farm>()(persist((set) => ({
-        name: '',
-        address: '',
-        logo: '',
-        setFarmName: (event) => set((state) => ({name: event.target.value, address: state.address})),
-        setFarmAddress: (event) => set((state) => ({name: state.name, address: event.target.value})),
-        setFarmLogo: (path) => set(state => ({...state, logo: path}))
-    }),
-))

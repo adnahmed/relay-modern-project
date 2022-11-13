@@ -1,17 +1,21 @@
-import {Outlet, useParams} from "react-router-dom";
-import React from "react";
+import {useParams} from "react-router-dom";
 
 export function CropYear() {
-    const yearStart = 2021
-    const yearEnd = 2022
     let urlParams = useParams()
     return (
         <div className="YearRange">
             <div style={{ display: 'flex', flex: '1', justifyContent: 'space-between'}}>
-                <p>Cropping Year: {yearStart}-{yearEnd}</p>
-                <p>Crop: {urlParams.cropName}</p>
+                <p>Cropping Year: {urlParams.yearStart}-{urlParams.yearEnd}</p>
             </div>
-            <Outlet />
+        </div>
+    )
+}
+
+export function CropType() {
+    let urlParams = useParams()
+    return (
+        <div className="CropType">
+                <p>Crop: <div style={{display: 'inline', color: 'brown'}}>{urlParams.cropName}</div></p>
         </div>
     )
 }

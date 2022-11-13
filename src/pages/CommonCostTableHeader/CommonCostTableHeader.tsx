@@ -5,7 +5,7 @@ import {CellRow} from "../../Components/CellRow";
 interface CommonCostTableHeaderProps {
 }
 
-const CommonCostTableHeader: FC<CommonCostTableHeaderProps> = () => (
+const CommonCostTableHeader: FC<CommonCostTableHeaderProps> = (props) => (
     <>
         <CellRow style={{fontWeight: 'bold'}}
                  values={['Operation/Activity', 'Best Practices', 'Conventional Practices']}/>

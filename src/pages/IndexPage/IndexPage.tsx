@@ -1,9 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import './IndexPage.scss';
-import {useFarmStore} from "../../Models/Farm";
 import {Link} from "react-router-dom";
 import logo from './diary.webp'
 import {Logo} from "../NavBar/Logo";
+import {useFarmStore} from "../../Models/useFarmStore";
 
 interface IndexPageProps {
 }
@@ -49,8 +49,8 @@ const IndexPage: FC<IndexPageProps> = () => {
             </div>
             <h1 style={{textAlign: 'center', width: '100%', fontWeight: 'bold', fontSize: "2em"}}>KESAN DIARY</h1>
             <div style={{display: 'flex'}}/>
-            <img src={logo} style={{width: '80%', marginTop: '2em'}} alt="KMAF"/>
-            <div style={{marginTop: "7em"}}>
+            <img src={logo} style={{height: '50%', width: '50%', float: 'left'}} alt="KMAF"/>
+            <div style={{marginTop: "7em", clear: 'left'}}>
                 <p>Developed by <b>Adnan Ahmed Khan</b></p>
                 <p>Arid # 2018-ARID-0957</p>
                 <p>under supervision of <b>Mrs. Tayyaba</b></p>

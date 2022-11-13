@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import './CommentsAndRecommendations.scss';
 import CommentOrRecommmendationBox from "../../Components/CommentOrRecommmendationBox/CommentOrRecommmendationBox";
 import useCommentsOrRecommendationsStore from "../../Models/useCommentsOrRecommendationsStore";
+import GlowyButton from '../GlowyButton/GlowyButton';
 
 interface CommentsAndRecommendationsProps {
     topic: string
@@ -45,15 +46,15 @@ const CommentsAndRecommendations: FC<CommentsAndRecommendationsProps> = (props) 
 
     return (
         <div className="CommentsAndRecommendations">
-            Comments/Recommendations about {props.topic}
+            <b style={{ fontSize: 'x-large', color: 'darkgreen'}}>Comments/Recommendations about {props.topic}</b>
             <br/>
             {
                 !isPrinting ?
                     <div style={{display: 'flex', justifyContent: 'space-between'}}>
                         <input style={{flex: '1 1 auto'}} placeholder={"Please write here"}
                                value={commentValue} onChange={onChange} onKeyPress={keyPressed}/>
-                        <button style={{flex: '1 1 auto'}} onClick={addComment}>Add Comment</button>
-                        <button onClick={pagePreview} style={{flex: '0 0 auto', color: 'blue'}}>Page Preview</button>
+                        <GlowyButton style={{ padding: '3px'}}><button style={{flex: '1 1 auto'}} onClick={addComment}>Add Comment</button></GlowyButton>
+                        <GlowyButton style={{ padding: '3px'}}><button onClick={pagePreview} style={{flex: '0 0 auto', color: 'blue'}}>Page Preview</button></GlowyButton>
                     </div> : <></>
             }
             {/* word, excel, pdf */}

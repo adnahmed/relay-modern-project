@@ -12,6 +12,13 @@ interface DataDashboardProps {
 const TopicDashboard: FC<DataDashboardProps> = (props) => {
     // eslint-disable-next-line no-restricted-globals
     const topic =(location.pathname.split('/').reverse()[0]).replaceAll(/[^a-zA-Z]/g, ' ')
+    const FinanceElement = (props) =>  {
+    return (
+        <>
+            <b style={{ fontSize: 'xx-large', color: 'green'}}>{"Financial Information of " + props.topic}</b>
+        </>
+    )
+    }
     return (
         <div className="DataDashboard">
             <Routes>
@@ -32,7 +39,7 @@ const TopicDashboard: FC<DataDashboardProps> = (props) => {
                         </ul>
                     </>
                 }/>
-                <Route path="finance" element={props.element}/>
+                <Route path="finance" element={<><FinanceElement topic={topic} />{props.element}</>}/>
                 {/* eslint-disable-next-line no-restricted-globals */}
                 <Route path="discuss" element={<CommentsAndRecommendations topic={topic} />}/>
                 <Route path="information" element={<Information topic={topic} />} />
@@ -40,5 +47,6 @@ const TopicDashboard: FC<DataDashboardProps> = (props) => {
         </div>
     );
 }
+
 
 export default TopicDashboard;

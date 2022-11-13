@@ -1,38 +1,22 @@
-import React from 'react'
 import {Link} from 'react-router-dom'
+import './CropCard.scss'
 
 export function CropCard() {
     return (
-        <div className="dashboard">
-            <p>Contents:</p>
-            <ul className="content-list"/>
-            <li>
-                <Link to="general">General Information</Link>
-            </li>
-            <li>
+        <div className="crop-card">
+            <div style={{ color: 'green' }} className="heading">
+               Farm Functions 
+            </div>
+            <div className="crop-card options">
                 <Link to="land-preparation">Land Preparation</Link>
-            </li>
-            <li>
                 <Link to="sowing">Sowing</Link>
-            </li>
-            <li>
                 <Link to="inputs">Inputs</Link>
-            </li>
-            <li>
                 <Link to="harvesting">Harvesting</Link>
-            </li>
-            <li>
                 <Link to="post-harvesting-and-storage">Post Harvest And Storage</Link>
-            </li>
-            <li>
                 <Link to="marketing">Marketing</Link>
-            </li>
-            <li>
                 <Link to="all-costs">All Costs</Link>
-            </li>
-            <li>
                 <Link to="economic-analysis">Economic Analysis</Link>
-            </li>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import {useFarmStore} from "../../Models/Farm";
 import logo from './logo.webp'
+import {useFarmStore} from "../../Models/useFarmStore";
 export function Logo(props) {
     return (
         <div style={{ width: '80px', height: '80px', ...props.style}} className="NavbarImage">

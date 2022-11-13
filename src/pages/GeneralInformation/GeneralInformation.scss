@@ -1,0 +1,19 @@
+#menu-buttons > .button {
+  width: max-content;
+}
+#menu-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.GeneralInformation .information {
+  display: inline;
+  margin-left: 30px;
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+.GeneralInformation #heading {
+  color: green;
+  font-size: xx-large;
+}

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import './InputsCrop.scss';
 import {Link} from "react-router-dom";
 
