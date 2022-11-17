@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@reduxjs/toolkit': ^1.8.6
   '@shopify/polaris': ^10.12.0
+  '@shopify/polaris-icons': ^6.5.0
   '@types/jest': ^27.5.2
   '@types/node': ^16.18.0
   '@types/react': ^18.0.23
@@ -12,6 +13,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   formik: ^2.2.9
   generate-react-cli: ^8.0.1
+  gsap: ^3.11.3
   postcss: ^8.4.18
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -32,6 +34,7 @@ specifiers:
 dependencies:
   '@reduxjs/toolkit': 1.8.6_react@18.2.0
   '@shopify/polaris': 10.12.0_biqbaboplfbrettd7655fr4n2y
+  '@shopify/polaris-icons': 6.5.0
   '@types/jest': 27.5.2
   '@types/node': 16.18.1
   '@types/react': 18.0.23
@@ -41,6 +44,7 @@ dependencies:
   eslint-plugin-react-hooks: 4.6.0
   formik: 2.2.9_react@18.2.0
   generate-react-cli: 8.0.1
+  gsap: 3.11.3
   postcss: 8.4.18
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -5566,6 +5570,10 @@ packages:
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
+    dev: false
+
+  /gsap/3.11.3:
+    resolution: {integrity: sha512-xc/iIJy+LWiMbRa4IdMtdnnKa/7PXEK6NNzV71gdOYUVeTZN7UWnLU0fB7Hi1iwiz4ZZoYkBZPPYGg+2+zzFHA==}
     dev: false
 
   /gzip-size/6.0.0:
