@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@reduxjs/toolkit': ^1.8.6
+  '@salesforce-ux/design-system': ^2.19.0
   '@shopify/polaris': ^10.12.0
   '@shopify/polaris-icons': ^6.5.0
   '@types/jest': ^27.5.2
@@ -33,6 +34,7 @@ specifiers:
 
 dependencies:
   '@reduxjs/toolkit': 1.8.6_react@18.2.0
+  '@salesforce-ux/design-system': 2.19.0_postcss@8.4.18
   '@shopify/polaris': 10.12.0_biqbaboplfbrettd7655fr4n2y
   '@shopify/polaris-icons': 6.5.0
   '@types/jest': 27.5.2
@@ -2200,6 +2202,14 @@ packages:
 
   /@rushstack/eslint-patch/1.2.0:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
+    dev: false
+
+  /@salesforce-ux/design-system/2.19.0_postcss@8.4.18:
+    resolution: {integrity: sha512-WmMzB7eqZ67OZ9sS5A6MI3BKmyOevjwZCuizg43ahukzc7lsvlQheHX0TKuHvL8oVaZSrChFIz6gmMQk9+mmSw==}
+    peerDependencies:
+      postcss: ^8.3.5
+    dependencies:
+      postcss: 8.4.18
     dev: false
 
   /@shopify/polaris-icons/6.5.0:
