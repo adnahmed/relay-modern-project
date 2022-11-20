@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import './Seed.scss';
-import {CellRow} from "../../Components/CellRow";
+import {CellRow} from "../CellRow";
 
 interface SeedProps {
 }

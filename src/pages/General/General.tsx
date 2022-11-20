@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import './General.scss';
 import Select from "react-select";
-import {CellRow} from "../../Components/CellRow";
+import {CellRow} from "../CellRow";
 import {Land, LandUnit} from "../../Models/Land";
 
 interface GeneralProps {

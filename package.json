@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fontsource/roboto": "^4.5.8",
+    "@react-theming/storybook-addon": "^1.1.7",
     "@reduxjs/toolkit": "^1.8.6",
     "@salesforce-ux/design-system": "^2.19.0",
     "@shopify/polaris": "^10.12.0",
@@ -37,6 +38,7 @@
     "storybook-addon-react-router-v6": "^0.2.1",
     "storybook-react-router": "^1.0.8",
     "styled-components": "^5.3.6",
+    "styled-theming": "^2.2.0",
     "tailwindcss": "^3.2.1",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4",
@@ -49,7 +51,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "init-msw": "msw init public/"
+    "init-msw": "msw init public/",
+    "lint:scss": "stylelint ./src/**/*.tsx"
   },
   "eslintConfig": {
     "extends": [
@@ -95,7 +98,16 @@
     "@storybook/react": "^6.5.7",
     "@storybook/testing-library": "^0.0.11",
     "babel-loader": "^9.1.0",
+    "babel-plugin-styled-components": "^2.0.7",
     "msw": "^0.42.0",
-    "msw-storybook-addon": "^1.6.3"
+    "msw-storybook-addon": "^1.6.3",
+    "postcss-lit": "^0.5.0",
+    "postcss-scss": "^4.0.5",
+    "stylelint": "^14.15.0",
+    "stylelint-config-recommended": "^9.0.0",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
   }
 }

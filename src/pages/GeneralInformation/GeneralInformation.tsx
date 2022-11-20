@@ -5,7 +5,7 @@ import {useFarmStore} from '../../Models/useFarmStore'
 import useUserStore from '../../Models/useUserStore'
 import SoilType from '../../Enums/SoilType'
 import useCropsStore from '../../Models/useCropsStore'
-import {CellRow} from '../../Components/CellRow';
+import {CellRow} from '../CellRow';
 import {Link} from 'react-router-dom'
 import {Crop} from "../../Models/Crop";
 

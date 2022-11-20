@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import './CommentsAndRecommendations.scss';
-import CommentOrRecommmendationBox from "../../Components/CommentOrRecommmendationBox/CommentOrRecommmendationBox";
+import CommentOrRecommmendationBox from "../CommentOrRecommmendationBox/CommentOrRecommmendationBox";
 import useCommentsOrRecommendationsStore from "../../Models/useCommentsOrRecommendationsStore";
 import GlowyButton from '../GlowyButton/GlowyButton';
 

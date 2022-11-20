@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import './PostHarvesting.scss';
-import {CellRow} from "../../Components/CellRow";
+import {CellRow} from "../CellRow";
 
 interface PostHarvestingProps {
 }

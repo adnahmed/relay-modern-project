@@ -1,5 +1,5 @@
 import React from 'react'
-import {CellRow} from '../../Components/CellRow'
+import {CellRow} from '../CellRow'
 export function LandPreparation() {
     return (
         <>

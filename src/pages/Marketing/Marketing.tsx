@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './Marketing.scss';
-import {CellRow} from "../../Components/CellRow";
+import {CellRow} from "../CellRow";
 
 interface MarketingProps {}
 

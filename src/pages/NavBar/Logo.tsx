@@ -1,10 +1,10 @@
 import React from "react";
-import logo from './logo.webp'
 import {useFarmStore} from "../../Models/useFarmStore";
+import AppLogo from '../../Components/Logo/Logo'
 export function Logo(props) {
     return (
         <div style={{ width: '80px', height: '80px', ...props.style}} className="NavbarImage">
-            <img src={logo} alt="KMAF"/>
+            <AppLogo />
         </div>
     )
 }

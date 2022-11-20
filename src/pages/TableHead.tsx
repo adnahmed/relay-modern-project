@@ -1,5 +1,5 @@
-import CommonCostTableHeader from '../pages/CommonCostTableHeader/CommonCostTableHeader'
-import GlowyButton from '../pages/GlowyButton/GlowyButton'
+import CommonCostTableHeader from './CommonCostTableHeader/CommonCostTableHeader'
+import GlowyButton from './GlowyButton/GlowyButton'
 export default function TableHead(props) {
   const pagePreview = () => {
     window.print()

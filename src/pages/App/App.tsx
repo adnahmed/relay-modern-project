@@ -5,7 +5,7 @@ import {CropCard} from '../CropCard/CropCard'
 import {LandPreparation} from '../LandPreparation/LandPreparation'
 import {Dashboard} from '../Dashboard/Dashboard'
 import {Layout} from '../../Layout/Layout'
-import {NoMatch} from '../../Components/NoMatch'
+import {NoMatch} from '../NoMatch'
 import UnknownPage from "../UnknownPage/UnknownPage";
 import RegistrationForm from "../RegisterationForm/RegisterationForm";
 import AuthenticationForm from "../AuthenticationForm/AuthenticationForm";
@@ -15,7 +15,7 @@ import Irrigation from "../Irrigation/Irrigation";
 import TopicDashboard from "../TopicDashboard/TopicDashboard";
 import General from "../General/General";
 import NoMatchCrop from "../NoMatchCrop/NoMatchCrop";
-import { CropYear, CropType } from '../../Components/CropYear';
+import { CropYear, CropType } from '../CropYear';
 import Sowing from "../Sowing/Sowing";
 import LaborManagement from "../LaborManagement/LaborManagement";
 import IntegratedPestManagement from "../IntegratedPestManagement/IntegratedPestManagement";
@@ -30,8 +30,8 @@ import AllCosts from "../AllCosts/AllCosts";
 import EconomicAnalysis from "../EconomicAnalysis/EconomicAnalysis";
 import AuthenticationMethods from "../AuthenticationMethods/AuthenticationMethods";
 import IndexPage from "../IndexPage/IndexPage";
-import TableHead from "../../Components/TableHead";
-import {HarvestDate} from "../../Components/HarvestDate";
+import TableHead from "../TableHead";
+import {HarvestDate} from "../HarvestDate";
 import GeneralInformation from "../GeneralInformation/GeneralInformation";
 import YearSelect from '../YearSelect/YearSelect'
 

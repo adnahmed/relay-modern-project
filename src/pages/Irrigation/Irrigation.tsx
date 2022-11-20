@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import './Irrigation.scss';
-import {CellRow} from "../../Components/CellRow";
+import {CellRow} from "../CellRow";
 
 interface IrrigationProps {
 }
