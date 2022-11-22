@@ -5,11 +5,11 @@ import {Route} from "react-router";
 import CommentsAndRecommendations from "../CommentsAndRecommendations/CommentsAndRecommendations";
 import Information from "../Information/Information";
 
-interface DataDashboardProps {
+export interface TopicDashboardProps {
     element: ReactElement
 }
 
-const TopicDashboard: FC<DataDashboardProps> = (props) => {
+const TopicDashboard: FC<TopicDashboardProps> = (props) => {
     // eslint-disable-next-line no-restricted-globals
     const topic =(location.pathname.split('/').reverse()[0]).replaceAll(/[^a-zA-Z]/g, ' ')
     const FinanceElement = (props) =>  {

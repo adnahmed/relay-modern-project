@@ -5,10 +5,10 @@
   "testLibrary": "Enzyme",
   "component": {
     "default": {
-      "path": "src/pages",
+      "path": "src/Components",
       "withStyle": true,
       "withTest": true,
-      "withStory": false,
+      "withStory": true,
       "withLazy": false
     },
     "page": {
@@ -17,7 +17,7 @@
         "style": "templates/page/TemplateName.scss",
         "test": "templates/page/TemplateName.test.tsx"
       },
-      "path": "src/pages",
+      "path": "src/Components",
       "withLazy": false,
       "withStory": false,
       "withStyle": true,

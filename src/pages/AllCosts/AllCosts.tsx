@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
 import './AllCosts.scss';
-import {LandPreparation} from "../LandPreparation/LandPreparation";
+import LandPreparation from "../LandPreparation/LandPreparation";
 import Sowing from "../Sowing/Sowing";
 import Seed from "../Seed/Seed";
 import Irrigation from "../Irrigation/Irrigation";
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 import LaborManagement from "../LaborManagement/LaborManagement";
 import IntegratedPestManagement from "../IntegratedPestManagement/IntegratedPestManagement";
 import IntegratedDiseaseManagement from "../IntegratedDiseaseManagement/IntegratedDiseaseManagement";

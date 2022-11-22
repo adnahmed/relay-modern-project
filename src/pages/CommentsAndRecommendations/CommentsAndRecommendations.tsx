@@ -1,10 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
 import './CommentsAndRecommendations.scss';
-import CommentOrRecommmendationBox from "../CommentOrRecommmendationBox/CommentOrRecommmendationBox";
+import CommentOrRecommendationBox from "../CommentOrRecommendationBox/CommentOrRecommendationBox";
 import useCommentsOrRecommendationsStore from "../../Models/useCommentsOrRecommendationsStore";
 import GlowyButton from '../GlowyButton/GlowyButton';
 
-interface CommentsAndRecommendationsProps {
+export interface CommentsAndRecommendationsProps {
     topic: string
 }
 
@@ -63,7 +63,7 @@ const CommentsAndRecommendations: FC<CommentsAndRecommendationsProps> = (props) 
                 {
                     commentsOrRecommendations.filter(cor => cor.topic === props.topic).map((comment) => {
                         return (
-                            <CommentOrRecommmendationBox isPrinting={isPrinting} comment={comment}/>
+                            <CommentOrRecommendationBox isPrinting={isPrinting} comment={comment}/>
                         )
                     })
                 }

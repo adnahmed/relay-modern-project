@@ -2,15 +2,20 @@
 A stub interface, use react-props here.
 */
 import React from 'react'
-import {Cell} from './Cell'
+import Cell from '../Cell/Cell'
 
-const cellRowStyle = (isVertical: boolean, cells: number) => {
+const cellRowStyle = (isVertical: boolean | undefined, cells: number) => {
     return isVertical ? {gridTemplateRows: `repeat(${cells}, 1fr)`} :
         {gridTemplateColumns: `repeat(${cells}, 1fr)`}
 }
-
+export interface CellRowProps {
+    values
+    isVertical?: boolean
+    cellStyle?
+    style?
+}
 // TODO: Validate props with react-props
-export function CellRow(props) {
+export default function CellRow(props: CellRowProps) {
     return (
         <div
             className="CellRow"

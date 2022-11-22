@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import './IntegratedDiseaseManagement.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface IntegratedDiseaseManagementProps {}
+export interface IntegratedDiseaseManagementProps {}
 
 const IntegratedDiseaseManagement: FC<IntegratedDiseaseManagementProps> = () => (
   <div className="IntegratedDiseaseManagement">

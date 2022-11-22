@@ -1,12 +1,11 @@
-import  {FC, useEffect} from 'react';
+import {FC, useEffect} from 'react';
 import './IndexPage.scss';
 import {Link} from "react-router-dom";
 import logo from './diary.webp'
-import {Logo} from "../NavBar/Logo";
 import {useFarmStore} from "../../Models/useFarmStore";
+import TopBar from "../../Components/TopBar/TopBar";
 
-interface IndexPageProps {
-}
+export interface IndexPageProps {}
 
 const IndexPage: FC<IndexPageProps> = () => {
     const farmName = useFarmStore(state => state.name)
@@ -14,12 +13,12 @@ const IndexPage: FC<IndexPageProps> = () => {
     const setFarmAddress = useFarmStore(state => state.setFarmAddress)
     const setFarmName = useFarmStore(state => state.setFarmName)
     useEffect(() => {
-        setFarmName({target: { value: 'Kauser Model Agriculture Farm'}})
-        setFarmAddress({target: { value: 'Jhambra Sharqi, Mianwali'}})
+        setFarmName({target: {value: 'Kauser Model Agriculture Farm'}})
+        setFarmAddress({target: {value: 'Jhambra Sharqi, Mianwali'}})
     })
     return (
         <div className="IndexPage">
-            <Logo style={{float: 'right', width: '150px', height: '150px'}}/>
+            <TopBar/>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <form style={{flex: '1'}}>
                     <label style={{borderRadius: '1em', marginBottom: '1em'}}>
@@ -35,7 +34,7 @@ const IndexPage: FC<IndexPageProps> = () => {
                     </label>
                     <label style={{borderRadius: '1em'}}>
                         Farm Address
-                        <input value={farmAddress} 
+                        <input value={farmAddress}
                                style={{width: '100%', background: 'lightseagreen', color: 'white'}}
                                placeholder="Please enter your Farm Address:"
                                onChange={setFarmAddress}></input>

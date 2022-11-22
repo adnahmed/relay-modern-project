@@ -1,6 +1,9 @@
 import React from "react";
-
-export function Cell(props) {
+export interface CellProps {
+    style?
+    value
+}
+export default function Cell(props) {
     return (
         <div
             className="Cell"

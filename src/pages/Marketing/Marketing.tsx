@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import './Marketing.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface MarketingProps {}
+export interface MarketingProps {}
 
 const Marketing: FC<MarketingProps> = () => (
   <div className="Marketing">

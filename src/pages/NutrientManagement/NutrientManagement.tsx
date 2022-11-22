@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import './NutrientManagement.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface NutrientManagementProps {
+export interface NutrientManagementProps {
 }
 
 const NutrientManagement: FC<NutrientManagementProps> = () => (

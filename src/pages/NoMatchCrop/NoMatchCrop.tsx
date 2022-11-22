@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './NoMatchCrop.scss';
 
-interface NoMatchCropProps {}
+export interface NoMatchCropProps {}
 
 const NoMatchCrop: FC<NoMatchCropProps> = () =>  (
     <>

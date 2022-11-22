@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import './Harvesting.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface HarvestingProps {
+export interface HarvestingProps {
 }
 
 const Harvesting: FC<HarvestingProps> = () => (

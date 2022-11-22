@@ -1,0 +1,46 @@
+@mixin RaiseGreen {
+  border-bottom: 0.5rem chartreuse;
+  border-style: inset;
+  border-color: chartreuse;
+}
+
+.Search {
+  width: 100%;
+  display: grid;
+  .SearchBox {
+    width: 100%;
+    border-radius: 1em;
+    height: 3em;
+    padding: 0.5em;
+    padding-left: 1em;
+    opacity: 0.5;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .SearchBox:hover {
+    @include RaiseGreen;
+    transition-duration: 200ms;
+  }
+
+  .SearchBox:focus {
+    @include RaiseGreen;
+  }
+
+  .SearchForeground::before {
+    content: ' ';
+    width: 1em;
+    height: 0.2em;
+    background: greenyellow;
+  }
+
+  .SearchForeground {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    font-size: x-large;
+    padding: 0.2em 0.2em 0em 0.2em;
+    margin-left: 1em;
+
+
+  }
+}

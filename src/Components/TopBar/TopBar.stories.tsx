@@ -3,7 +3,6 @@ import TopBar from './TopBar'
 
 export default {
     title: 'TopBar',
-    component: TopBar
 };
 
 const Template = (args) => {
@@ -11,3 +10,10 @@ const Template = (args) => {
 }
 
 export const Primary = Template.bind({});
+// @ts-ignore
+
+Primary.args ={
+    variant: 'primary'
+}
+
+

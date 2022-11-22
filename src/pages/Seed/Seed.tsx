@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import './Seed.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface SeedProps {
+export interface SeedProps {
 }
 
 const Seed: FC<SeedProps> = () => (

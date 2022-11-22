@@ -1,14 +1,14 @@
 import React, {FC, useState} from 'react';
-import './CommentOrRecommmendationBox.scss';
+import './CommentOrRecommendationBox.scss';
 import CommentOrRecommendation from "../../Models/CommentOrRecommendation"
 import useCommentsOrRecommendationsStore from "../../Models/useCommentsOrRecommendationsStore";
 
-interface CommentOrRecommmendationBoxProps {
+export interface CommentOrRecommmendationBoxProps {
     isPrinting: boolean
     comment: CommentOrRecommendation
 }
 
-const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props) => {
+const CommentOrRecommendationBox: FC<CommentOrRecommmendationBoxProps> = (props) => {
     const [isEditing, setIsEditing] = useState(false)
     const editCOR = useCommentsOrRecommendationsStore(state => state.edit)
     const deleteCOR = useCommentsOrRecommendationsStore(state => state.delete)
@@ -17,11 +17,11 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
         setValue(e.target.value)
     }
     const editComment = () => {
-        setValue(props.comment.value)
+        setValue(props.comment?.value)
         setIsEditing(true)
     }
     const saveComment = () => {
-        editCOR(props.comment.id, {...props.comment, value: value})
+        editCOR(props.comment?.id, {...props.comment, value: value})
         setIsEditing(false)
     }
 
@@ -32,7 +32,7 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
     return (
         <div style={{display: 'grid', gridTemplateColumns: '1fr 8fr 1fr 1fr 1fr'}}>
             <p style={{marginRight: '1em'}}>
-                {props.comment.date.toLocaleDateString()}
+                {props.comment?.date.toLocaleDateString()}
             </p>
             {
                 isEditing ?
@@ -47,7 +47,7 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
                                 whiteSpace: 'pre-wrap',
                                 wordWrap: 'break-word',
                                 maxWidth: '400px'
-                            }}>{props.comment.value}</pre>
+                            }}>{props.comment?.value}</pre>
                             <button onClick={editComment} style={{color: 'blue'}}>Reply</button>
                             <button id='edit-button' onClick={editComment} style={{color: 'blue'}}>Edit</button>
                             <button onClick={deleteComment} style={{color: 'red'}}>Delete</button>
@@ -57,4 +57,4 @@ const CommentOrRecommmendationBox: FC<CommentOrRecommmendationBoxProps> = (props
     );
 }
 
-export default CommentOrRecommmendationBox;
+export default CommentOrRecommendationBox;

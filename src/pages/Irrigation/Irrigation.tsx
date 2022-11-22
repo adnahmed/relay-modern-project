@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import './Irrigation.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface IrrigationProps {
+export interface IrrigationProps {
 }
 
 const irrigationTable = [

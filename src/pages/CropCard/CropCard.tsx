@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import './CropCard.scss'
 
-export function CropCard() {
+export default function CropCard() {
     return (
         <div className="crop-card">
             <div style={{ color: 'green' }} className="heading">

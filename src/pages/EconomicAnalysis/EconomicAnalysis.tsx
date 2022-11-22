@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './EconomicAnalysis.scss';
 
-interface EconomicAnalysisProps {}
+export interface EconomicAnalysisProps {}
 
 const EconomicAnalysis: FC<EconomicAnalysisProps> = () => (
   <div className="EconomicAnalysis">

@@ -2,7 +2,7 @@ import {FC} from 'react';
 import './InputsCrop.scss';
 import {Link} from "react-router-dom";
 
-interface InputsCropProps {
+export interface InputsCropProps {
 }
 
 const InputsCrop: FC<InputsCropProps> = () => {

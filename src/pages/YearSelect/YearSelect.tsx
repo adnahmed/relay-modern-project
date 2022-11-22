@@ -2,7 +2,7 @@ import { FC } from 'react'
 import './YearSelect.scss'
 import { Link } from 'react-router-dom'
 import GlowyButton from '../GlowyButton/GlowyButton'
-interface YearSelectProps {}
+export interface YearSelectProps {}
 const years = [
   { start: '2021', end: '2022' },
   { start: '2020', end: '2021' },

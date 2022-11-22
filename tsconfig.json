@@ -9,6 +9,8 @@
     ],
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
+    "strictBindCallApply": true,
+    "incremental": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "allowJs": true,

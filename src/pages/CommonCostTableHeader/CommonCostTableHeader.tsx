@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import './CommonCostTableHeader.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface CommonCostTableHeaderProps {
+export interface CommonCostTableHeaderProps {
 }
 
 const CommonCostTableHeader: FC<CommonCostTableHeaderProps> = (props) => (

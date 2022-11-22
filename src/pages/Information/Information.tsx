@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './Information.scss';
 
-interface InformationProps {
+export interface InformationProps {
     topic: string
 }
 

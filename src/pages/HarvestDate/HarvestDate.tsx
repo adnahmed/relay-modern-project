@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
-
-export function HarvestDate() {
+export interface HarvestDateProps {}
+export default function HarvestDate(props: HarvestDateProps) {
     return (
         <div>
             <p>

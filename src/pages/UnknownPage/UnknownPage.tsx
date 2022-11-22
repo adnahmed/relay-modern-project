@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import './UnknownPage.scss';
 import {Link} from "react-router-dom";
 
-interface UnknownPageProps {}
+export interface UnknownPageProps {}
 
 const UnknownPage: FC<UnknownPageProps> = () => (
     <div>

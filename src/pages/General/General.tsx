@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
 import './General.scss';
 import Select from "react-select";
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 import {Land, LandUnit} from "../../Models/Land";
 
-interface GeneralProps {
+export interface GeneralProps {
 }
 
 const General: FC<GeneralProps> = () => {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CommentOrRecommmendationBox from './CommentOrRecommmendationBox';
+import LocaleSelection from './LocaleSelection';
 
-describe('<CommentOrRecommmendationBox />', () => {
+describe('<LocaleSelection />', () => {
   let component;
 
   beforeEach(() => {
+    component = shallow(<LocaleSelection />);
   });
 
   test('It should mount', () => {

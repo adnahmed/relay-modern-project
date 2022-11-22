@@ -3,7 +3,7 @@ import './RegisterationForm.scss';
 import onChangeInput from "../../util/onChangeInput";
 import {Link} from "react-router-dom";
 
-interface RegisterationFormProps {
+export interface RegisterationFormProps {
     setIsAuthenticated: (b: boolean) => void
 }
 

@@ -7,8 +7,8 @@ import maize from './maize.jpg'
 import wheat from './wheat.webp'
 import GlowyButton from '../GlowyButton/GlowyButton'
 import { Crop } from '../../Models/Crop'
-
-export function Dashboard() {
+export interface DashboardProps {}
+export default function Dashboard(props: DashboardProps) {
   const crops: Crop[] = [
     {
       id: '1',

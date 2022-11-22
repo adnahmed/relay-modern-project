@@ -1,7 +1,11 @@
 import {useState} from 'react';
 import './GlowyButton.scss';
-
-export function GlowyButton(props) {
+export interface GlowyButtonProps {
+    children?
+    onClick?
+    style?
+}
+export function GlowyButton(props: GlowyButtonProps) {
     const [background, setBackground] = useState('white')
     const onMouseEnter = () => {
         setBackground('lightblue')

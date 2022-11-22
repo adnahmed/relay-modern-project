@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './GrossInputsCost.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 import Seed from "../Seed/Seed";
 import Irrigation from "../Irrigation/Irrigation";
 import LaborManagement from "../LaborManagement/LaborManagement";
@@ -9,7 +9,7 @@ import IntegratedDiseaseManagement from "../IntegratedDiseaseManagement/Integrat
 import IntegratedWeedManagement from "../IntegratedWeedManagement/IntegratedWeedManagement";
 import NutrientManagement from "../NutrientManagement/NutrientManagement";
 
-interface GrossInputsCostProps {}
+export interface GrossInputsCostProps {}
 
 const GrossInputsCost: FC<GrossInputsCostProps> = () => (
   <div className="GrossInputsCost">

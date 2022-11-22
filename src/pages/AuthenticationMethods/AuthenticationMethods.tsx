@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import './AuthenticationMethods.scss';
 import {Link} from "react-router-dom";
 
-interface AuthenticationMethodsProps {
+export interface AuthenticationMethodsProps {
 }
 
 const AuthenticationMethods: FC<AuthenticationMethodsProps> = () => (

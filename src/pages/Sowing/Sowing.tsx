@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import './Sowing.scss';
-import {CellRow} from "../CellRow";
+import CellRow from "../CellRow/CellRow";
 
-interface SowingProps {}
+export interface SowingProps {}
 
 const Sowing: FC<SowingProps> = () => (
   <div className="Sowing">

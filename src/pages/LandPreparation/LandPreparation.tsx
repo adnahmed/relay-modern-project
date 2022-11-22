@@ -1,6 +1,7 @@
 import React from 'react'
-import {CellRow} from '../CellRow'
-export function LandPreparation() {
+import CellRow from '../CellRow/CellRow'
+export interface LandPreparationProps {}
+export default function LandPreparation(props: LandPreparationProps) {
     return (
         <>
             <CellRow cellStyle={{textAlign: 'left'}} style={{fontWeight: 'bold'}}
