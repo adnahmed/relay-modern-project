@@ -1,37 +1,45 @@
-import React, {FC, useState} from 'react';
+import React, {FC, FormEvent, useState} from 'react';
 import './AuthenticationForm.scss';
 import onChangeInput from "../../util/onChangeInput";
 import {Link} from "react-router-dom";
+import {useAuth} from "../../Hooks/useAuth";
 
 export interface AuthenticationFormProps {
-    setIsAuthenticated: (b: boolean) => void
 }
 
 const AuthenticationForm: FC<AuthenticationFormProps> = (props) => {
     const [password, setPassword] = useState('')
-    const [userID, setUserID] = useState('')
+    const [username, setUsername] = useState('')
+    const auth = useAuth();
+    const handleSubmit = (event: FormEvent) => {
+        try {
+            auth?.signin(username, password)
+        }
+        catch (err) {
+            // console.log(err.message as Error)
+        }
+    }
 
     return (
-        <form method="get">
+        <form method="get" onSubmit={handleSubmit}>
             <fieldset>
-                <legend style={{marginBottom: '2em', marginTop: '3em'}}><b>Authentication</b></legend>
-                <div style={{ display: 'flex', flexDirection: 'column'}}>
+                <legend><b>Authentication</b></legend>
+                <div>
                     <label>
                         <p>Email / Username</p>
                         <input placeholder="Enter your Email or Username" name="UserID"
-                               onChange={onChangeInput(setUserID)}
-                               required value={userID} autoFocus type="text"></input>
+                               onChange={onChangeInput(setUsername)}
+                               required value={username} autoFocus type="text"></input>
                     </label>
                     <label>
-                    <p>Password</p>
+                        <p>Password</p>
                         <input placeholder="Enter your password" name="User Password"
                                onChange={onChangeInput(setPassword)}
                                required value={password} type="password"></input>
                     </label>
                 </div>
             </fieldset>
-            <button type="submit" style={{color: 'blue', borderWidth: '2px', borderRadius: '1em', padding: '15px', marginTop: '1em'}}
-                    onClick={() => props.setIsAuthenticated(true)}>
+            <button type="submit">
                 <Link to="/">
                     Submit
                 </Link>

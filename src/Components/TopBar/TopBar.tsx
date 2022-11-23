@@ -1,15 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import Logo from "../Logo/Logo";
 import MenuButton from "../MenuButton/MenuButton";
 import './TopBar.scss'
 import LocaleSelection from "../LocaleSelection/LocaleSelection";
 import SearchBox from "../SearchBox/SearchBox";
+import {useAuth} from "../../Hooks/useAuth";
 
 export interface TopBarProps {
 }
 
 export default function TopBar(props: TopBarProps) {
+    const auth = useAuth();
+
     return (
         <div className="TopBar">
             <Link className="LogoLink" to="/">
@@ -17,11 +20,20 @@ export default function TopBar(props: TopBarProps) {
             </Link>
             <div className="TopBarMenu">
                 <div className="TopBarMenuWrapper">
-                    <SearchBox />
-                    <LocaleSelection />
+                    <SearchBox/>
+                    <LocaleSelection/>
                 </div>
             </div>
             <div className="MenuButtonWrapper">
+                {!auth?.user && <div className="NewUser">
+                    <Link to="/registration">
+                        <button>Sign Up</button>
+                    </Link>
+                    <Link to="/authentication">
+                        <button>Sign In</button>
+                    </Link>
+                </div>
+                }
                 <MenuButton/>
             </div>
         </div>

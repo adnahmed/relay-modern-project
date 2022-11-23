@@ -1,17 +1,17 @@
-$primary-color: greenyellow;
+$primary-theme: greenyellow;
 $shadow-color: black;
 .LocaleSelection {
   display: flex;
   align-items: center;
   height: max-content;
   &:hover {
-    border-color: $primary-color;
-    outline: $primary-color solid;
+    border-color: $primary-theme;
+    outline: $primary-theme solid;
     transition-duration: 150ms;
   }
 
   svg {
-    fill: $primary-color;
+    fill: $primary-theme;
   }
 
   border: 0.01em solid $shadow-color;

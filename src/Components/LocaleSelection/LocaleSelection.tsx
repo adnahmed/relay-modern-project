@@ -15,7 +15,7 @@ const LocaleSelection: FC<LocaleSelectionProps> = (props) => {
           </div>
           <div className="SupportedLocales">
               {Object.keys(SupportedLocales).map(locale => {
-                  return <option value={locale}>{SupportedLocales[locale]}</option>
+                  return <option key={locale} value={locale}>{SupportedLocales[locale]}</option>
               })}
           </div>
           <Arrow />

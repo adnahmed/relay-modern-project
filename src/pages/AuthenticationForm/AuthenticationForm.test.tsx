@@ -6,8 +6,7 @@ describe('<AuthenticationForm />', () => {
     let component;
 
     beforeEach(() => {
-        component = shallow(<AuthenticationForm setIsAuthenticated={() => {
-        }}/>);
+        component = shallow(<AuthenticationForm/>);
     });
 
     test('It should mount', () => {

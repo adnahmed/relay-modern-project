@@ -4,7 +4,6 @@ import onChangeInput from "../../util/onChangeInput";
 import {Link} from "react-router-dom";
 
 export interface RegisterationFormProps {
-    setIsAuthenticated: (b: boolean) => void
 }
 
 const RegisterationForm: FC<RegisterationFormProps> = (props) => {

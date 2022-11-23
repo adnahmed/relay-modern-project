@@ -6,6 +6,7 @@ module.exports = {
         '@storybook/addon-essentials',
         '@storybook/preset-create-react-app',
         '@storybook/addon-interactions',
+        // [require.resolve('storybook-addon-grid')]
     ],
     framework: '@storybook/react',
     core: {
