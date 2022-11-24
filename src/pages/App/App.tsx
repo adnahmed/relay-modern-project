@@ -7,8 +7,6 @@ import Dashboard from '../Dashboard/Dashboard'
 import {Layout} from '../../Layout/Layout'
 import NoMatch from '../NoMatch/NoMatch'
 import UnknownPage from "../UnknownPage/UnknownPage";
-import RegistrationForm from "../RegisterationForm/RegisterationForm";
-import AuthenticationForm from "../AuthenticationForm/AuthenticationForm";
 import InputsCrop from "../InputsCrop/InputsCrop";
 import Seed from "../Seed/Seed";
 import Irrigation from "../Irrigation/Irrigation";
@@ -34,6 +32,8 @@ import HarvestDate from "../HarvestDate/HarvestDate";
 import GeneralInformation from "../GeneralInformation/GeneralInformation";
 import YearSelect from '../YearSelect/YearSelect'
 import {useAuth} from '../../Hooks/useAuth'
+import SignupForm from "../../Components/SignupForm/SignupForm";
+import SigninForm from "../../Components/SigninForm/SigninForm";
 
 function App() {
     const auth = useAuth();
@@ -96,8 +96,8 @@ function App() {
                 <Routes>
                     <Route path="/">
                         <Route index element={<IndexPage/>}/>
-                        <Route path="/registeration" element={<RegistrationForm/>}/>
-                        <Route path="/authentication" element={<AuthenticationForm/>}/>
+                        <Route path="/signup" element={<SignupForm />}/>
+                        <Route path="/signin" element={<SigninForm/>}/>
                         <Route path="*" element={<UnknownPage/>}/>
                     </Route>
                 </Routes>

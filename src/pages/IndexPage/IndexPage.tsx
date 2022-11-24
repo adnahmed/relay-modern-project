@@ -27,10 +27,10 @@ const IndexPage: FC<IndexPageProps> = () => {
                 <img src={logo}/>
             </header>
             <div className='ProfessionSelection'>
-                <Link to="/registration?role=expert">
+                <Link to="/signup?role=expert">
                     <div className='ProfessionCard'>Agriculture Expert</div>
                 </Link>
-                <Link to="/registration?role=farmer">
+                <Link to="/signup?role=farmer">
                     <div className='ProfessionCard'>Farmer</div>
                 </Link>
             </div>

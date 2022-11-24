@@ -26,10 +26,10 @@ export default function TopBar(props: TopBarProps) {
             </div>
             <div className="MenuButtonWrapper">
                 {!auth?.user && <div className="NewUser">
-                    <Link to="/registration">
+                    <Link to="/signup">
                         <button>Sign Up</button>
                     </Link>
-                    <Link to="/authentication">
+                    <Link to="/signin">
                         <button>Sign In</button>
                     </Link>
                 </div>

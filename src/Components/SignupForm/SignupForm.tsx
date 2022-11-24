@@ -1,64 +1,12 @@
-import React, {ComponentProps, FC, PropsWithChildren, ReactNode, ReactPropTypes} from 'react';
-import {
-    Formik,
-    FormikHelpers,
-    FormikProps,
-    Form,
-    Field,
-    FieldProps,
-    useFormik, FormikErrors, FormikContextType, FormikConfig, ErrorMessage, useField, FieldHookConfig, FieldInputProps
-} from "formik";
+import React, {FC} from 'react';
+import {Formik, Form} from "formik";
 import * as Yup from 'yup'
-
+import TextInputFromik from "../Input/TextInputFormik/TextInputFormik";
+import SelectFormik from "../Input/SelectFormik/SelectFormik";
+import CheckboxFormik from "../Input/CheckboxFormik/CheckboxFormik";
 import './SignupForm.scss';
 
-interface SignupFormValues {
-    firstName: string
-    lastName: string
-    email: string
-}
-
 interface SignupFormProps {
-}
-
-type InputFieldProps = FieldHookConfig<string> & { label?: string }
-
-function MyTextInput(props: InputFieldProps) {
-    const [field, meta] = useField(props);
-    const {label, type, placeholder} = props;
-    return (
-        <>
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <input type={type} placeholder={placeholder} className='text-input' {...field} />
-            {meta.touched && meta.error ? <div className='error'>{meta.error}</div> : null}
-        </>
-    )
-}
-
-function MyCheckbox(props: InputFieldProps) {
-    const [field, meta] = useField({...props, type: 'checkbox'});
-    return (
-        <div>
-            <label className='checkbox-input'>
-                <input type='checkbox' {...field} name={props.name}/>
-                {props.children}
-            </label>
-            {meta.touched && meta.error ? <div className='error'>{meta.error}</div> : null}
-        </div>
-    )
-}
-
-function MySelect(props: InputFieldProps) {
-    const [field, meta] = useField<string>(props);
-    return (
-        <div>
-            <label htmlFor={props.id || props.name}>{props.label}</label>
-            <select {...field} >
-                {props.children}
-            </select>
-            {meta.touched && meta.error ? (<div className='error'>{meta.error}</div>) : null}
-        </div>
-    )
 }
 
 const SignupForm: FC<SignupFormProps> = () => {
@@ -66,7 +14,17 @@ const SignupForm: FC<SignupFormProps> = () => {
         <>
             <h1>Sign Up</h1>
             <Formik
-                initialValues={{firstName: '', lastName: '', email: '', acceptedTerms: false, jobType: ''}}
+                initialValues={{
+                    firstName: '',
+                    lastName: '',
+                    mobileOrEmail: '',
+                    newPassword: '',
+                    repeatPassword: '',
+                    permanentAddress: '',
+                    city: '',
+                    country: '',
+                    acceptedTerms: false
+                }}
                 validationSchema={Yup.object({
                     firstName: Yup.string()
                         .max(15, 'Must be 15 characters or less')
@@ -74,44 +32,56 @@ const SignupForm: FC<SignupFormProps> = () => {
                     lastName: Yup.string()
                         .max(20, 'Must be 20 characters or less')
                         .required('Required'),
-                    email: Yup.string().email('Invalid email address.').required('Required'),
-                    acceptedTerms: Yup.boolean()
-                        .required('Required')
-                        .oneOf([true], 'You must accept terms and conditions.'),
-                    jobType: Yup.string()
+                    mobileOrEmail: Yup.string().email('Invalid email address.').required('Required'),
+                    newPassword: Yup.string()
+                        .required('Required'),
+                    repeatPassword: Yup.string()
                         .oneOf(
                             ['designer', 'development', 'product', 'other'],
                             'Invalid Job Type'
                         )
                         .required('Required'),
+                    permanentAddress: Yup.string()
+                        .required('Required'),
+                    city: Yup.string()
+                        .required('Required'),
+                    country: Yup.string()
+                        .required('Required'),
+                    acceptedTerms: Yup.boolean()
+                        .required('Required')
+                        .oneOf([true], 'You must accept Terms and Conditions.')
                 })}
                 onSubmit={(values, {setSubmitting}) => {
                     setTimeout(() => {
-
                         alert(JSON.stringify(values, null, 2));
                         setSubmitting(false)
                     }, 400)
                 }}>
                 <Form>
-                    <MyTextInput label='First Name' name='firstName' type='text' placeholder='Jane'/>
-                    <MyTextInput label='Last Name' name='lastName' type='text' placeholder='Doe'/>
-                    <MyTextInput label='Email Address' name='email' type='text' placeholder='jane@formik.com'/>
-                    <MySelect label='Job Type' name='jobType'>
-                        <option value=''>Select a Job Type</option>
-                        <option value='designer'>Designer</option>
-                        <option value='development'>Development</option>
-                        <option value='product'>Product</option>
-                        <option value='other'>Other</option>
-                    </MySelect>
-                    <MyCheckbox name='acceptedTerms'>
-                        I accept the terms and conditions
-                    </MyCheckbox>
+                    <TextInputFromik label='First Name' name='firstName' type='text' placeholder='Jane'/>
+                    <TextInputFromik label='Last Name' name='lastName' type='text' placeholder='Doe'/>
+                    <TextInputFromik label='Mobile Number or Email Address' name='mobileOrEmail' type='text' placeholder='jane@gmail.com, +923XXXXXXXX etc.'/>
+                    <TextInputFromik label='Password' name='password' type='text' hidden />
+                    <TextInputFromik label='Repeat Password' name='repeatPassword' type='text' hidden />
+                    <TextInputFromik label='Address' name='permanentAddress' type='text'/>
+                    <SelectFormik label='Country' name='country'>
+                        <option value=''>Select Country</option>
+                        <option value='rwp'>Pakistan</option>
+                        <option value='isl'>India</option>
+                    </SelectFormik>
+                    <SelectFormik label='City' name='city'>
+                        <option value=''>Select City</option>
+                        <option value='rwp'>Rawalpindi</option>
+                        <option value='isl'>Islamabad</option>
+                    </SelectFormik>
+                    <CheckboxFormik name='acceptedTerms'>
+                        I accept the <a className='TermsAndConditions'>Terms and Conditions</a>
+                    </CheckboxFormik>
                     <button type='submit'>Submit</button>
                 </Form>
             </Formik>
         </>
     )
 }
-
 
 export default SignupForm;

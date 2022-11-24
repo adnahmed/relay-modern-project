@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import useCropsStore from '../../Models/useCropsStore'
-import onChangeInput from '../../util/onChangeInput'
+import onChangeInput from '../../Types/onChangeInput'
 import potato from './potato.jpg'
 import maize from './maize.jpg'
 import wheat from './wheat.webp'
