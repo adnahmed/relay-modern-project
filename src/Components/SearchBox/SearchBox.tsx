@@ -4,7 +4,7 @@ import './SearchBox.scss';
 interface SearchBoxProps {
 }
 
-const SearchBox: FC<SearchBoxProps> = () => {
+const SearchBox: FC<SearchBoxProps> = (props) => {
     const [value, setValue] = useState('');
     const handleChange = event => {
         setValue(event.target.value)

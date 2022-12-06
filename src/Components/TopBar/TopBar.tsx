@@ -20,16 +20,16 @@ export default function TopBar(props: TopBarProps) {
             </Link>
             <div className="TopBarMenu">
                 <div className="TopBarMenuWrapper">
-                    <SearchBox/>
+                    <SearchBox />
                     <LocaleSelection/>
                 </div>
             </div>
             <div className="MenuButtonWrapper">
                 {!auth?.user && <div className="NewUser">
-                    <Link to="/signup">
+                    <Link className='link' to="/signup">
                         <button>Sign Up</button>
                     </Link>
-                    <Link to="/signin">
+                    <Link className='link' to="/signin">
                         <button>Sign In</button>
                     </Link>
                 </div>

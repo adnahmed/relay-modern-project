@@ -1,21 +1,16 @@
-import React, { FC } from 'react';
-import './SelectFormik.scss';
-import {useField} from "formik";
-import InputFieldProps from "../InputFieldProps";
+import './SelectFormik.scss'
+import { FieldHookConfig, useField } from 'formik'
+import { FC } from 'react'
 
-interface SelectFormikProps {}
-
-function SelectFormik(props: InputFieldProps) {
-    const [field, meta] = useField<string>(props);
-    return (
-        <div>
-            <label htmlFor={props.id || props.name}>{props.label}</label>
-            <select {...field} >
-                {props.children}
-            </select>
-            {meta.touched && meta.error ? (<div className='error'>{meta.error}</div>) : null}
-        </div>
-    )
+const SelectFormik: FC<FieldHookConfig<string> & { label?: string }> = (props) => {
+  const [field, meta] = useField<string>(props)
+  return (
+    <div>
+      <label htmlFor={props.id || props.name}>{props.label}</label>
+      <select {...field}>{props.children}</select>
+      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+    </div>
+  )
 }
 
-export default SelectFormik;
+export default SelectFormik

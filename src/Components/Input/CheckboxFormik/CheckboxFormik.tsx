@@ -1,11 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import './CheckboxFormik.scss';
-import {useField} from "formik";
-import InputFieldProps from "../InputFieldProps";
+import {FieldHookConfig, useField} from "formik";
 
-interface CheckboxFormikProps {}
-
-function CheckboxFormik(props: InputFieldProps) {
+const CheckboxFormik: FC<FieldHookConfig<string> & { label?: string }> = (props) => {
     const [field, meta] = useField({...props, type: 'checkbox'});
     return (
         <div>

@@ -32,21 +32,23 @@
 
 .TopBarMenuWrapper {
   display: flex;
-  width: 70%;
   align-items: center;
+  justify-content: flex-end;
   margin-left: auto;
-
-  & > * {
-    margin: 1em;
-  }
 }
 
 .MenuButtonWrapper {
-  @media (max-width: 40rem) {
-    flex: 4;
-    & > * {
-      margin-left: auto
-    }
+
+  & > button {
+    margin-left: auto;
   }
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   margin-right: 1em;
+}
+
+.link {
+  margin: 1em;
 }

@@ -1,4 +1,5 @@
 import ReactRouterDecorator from './ReactRouterDecorator'
+import { wd } from 'paths.macro'
 /// Configure Storybook to log the actions( onArchiveTask and onPinTask ) in the UI.
 const parameters = {
     actions: {argTypesRegex: '^on[A-Z].*'},
@@ -15,6 +16,11 @@ const parameters = {
         gutter: '50px',
         maxWidth: '1024px',
     },
+    storySource: {
+        repository: 'https://github.com/adnahmed/react-app',
+        workingDir: wd || 'D:\\projects\\react-app\\'
+
+    }
 };
 export const decorators = [ReactRouterDecorator]
 export default parameters

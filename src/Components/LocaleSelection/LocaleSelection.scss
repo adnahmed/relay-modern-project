@@ -15,10 +15,16 @@ $shadow-color: black;
   }
 
   border: 0.01em solid $shadow-color;
+  @media (max-width: 46rem) {
+    padding: 0.2em;
+  }
   padding: 0.4em;
   border-radius: 0.5em;
 
   .CurrentLocale {
+    @media (max-width: 46rem) {
+      padding: 0.1em;
+    }
     padding-right: 0.5em;
   }
 

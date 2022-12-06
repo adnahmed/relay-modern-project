@@ -1,9 +1,8 @@
-import React from 'react';
-import {useField} from "formik";
-import InputFieldProps from "../InputFieldProps";
+import {FieldHookConfig, useField} from "formik";
+import { FC } from "react";
 import './TextInputFormik.scss';
 
-function TextInputFromik(props: InputFieldProps) {
+const TextInputFromik: FC<FieldHookConfig<string> & { label?: string }> = (props) => {
     const [field, meta] = useField(props);
     const {label, type, placeholder} = props;
     return (

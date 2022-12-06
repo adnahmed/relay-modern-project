@@ -23,6 +23,7 @@ class User {
 interface AuthContext {
     user?: User
     signin: (username: string, password: string) => User
+    signup: (username: string, password: string) => User
 }
 
 const authContext = createContext<AuthContext | undefined>(undefined);
@@ -42,10 +43,11 @@ export const useAuth = () => {
 
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
-    const [user] = useState<User | undefined>(undefined);
+    const [user, setUser] = useState<User | undefined>(undefined); // Persistent State
     // Wrap any `auth api` methods we want to use making sure ...
     // ... to save the user to state.
     const signin = (email, password) => {
+        setUser(new User())
         /*
             return firebase
                 .auth()

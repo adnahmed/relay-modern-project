@@ -7,11 +7,48 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Watch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${file}"
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "watch"
+            ],
+            "trace": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "start"
+            ]
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Launch Edge against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src"
+        },
+        {
+            "name": "Storybook Debug",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run storybook",
+            "internalConsoleOptions": "openOnFirstSessionStart",
+            "serverReadyAction": {
+                "pattern": "Local:.+(https?://[^:]+:[0-9]+)",
+                "uriFormat": "%s",
+                "action": "debugWithChrome"
+            }
         }
     ]
 }
