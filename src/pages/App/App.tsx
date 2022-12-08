@@ -34,7 +34,15 @@ import YearSelect from '../YearSelect/YearSelect'
 import { useAuth } from '../../Hooks/useAuth'
 import SignupForm from '../../Components/SignupForm/SignupForm'
 import SigninForm from '../../Components/SigninForm/SigninForm'
+import AdministratorDashboard from '../../Components/AdministratorDashboard/AdministratorDashboard'
 
+/**
+ * 
+ * Administrator and Farmer create accounts.
+ - Farmer adds description and Location of Land.
+ - Crops get recommended for current season and Land Description.
+ * 
+ */
 function App() {
   const auth = useAuth()
   if (auth?.user)
@@ -256,6 +264,7 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/signin" element={<SigninForm />} />
+          <Route path="/admin" element={<AdministratorDashboard />}/>
           <Route path="*" element={<UnknownPage />} />
         </Route>
       </Routes>
