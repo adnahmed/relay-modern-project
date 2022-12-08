@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import useCropsStore from '../../Models/useCropsStore'
-import onChangeInput from '../../types/onChangeInput'
+import onChangeInput from '../../Types/onChangeInput'
 import potato from './potato.jpg'
 import maize from './maize.jpg'
 import wheat from './wheat.webp'
@@ -12,15 +12,18 @@ export default function Dashboard(props: DashboardProps) {
   const crops: Crop[] = [
     {
       id: '1',
-      name: 'Potato',
+      fullName: 'Potato',
+      landOccupied: 8,
     },
     {
       id: '2',
-      name: 'Maize',
+      fullName: 'Maize',
+      landOccupied: 7
     },
     {
       id: '3',
-      name: 'Wheat',
+      fullName: 'Wheat',
+      landOccupied: 4
     },
   ]
   //   const crops = useCropsStore((state) => state.values)
@@ -30,7 +33,7 @@ export default function Dashboard(props: DashboardProps) {
   const addNewCrop = () => {
     if (!showNewCropForm) setShowNewCropForm(true)
     else {
-      addCrop({ id: Math.random().toString(), name: cropName })
+      addCrop({ id: Math.random().toString(), fullName: cropName, landOccupied: 7 })
       setShowNewCropForm(false)
     }
   }
@@ -76,12 +79,12 @@ export default function Dashboard(props: DashboardProps) {
               }}
             >
               <GlowyButton>
-                <Link to={'/crop/' + crop.name}>{crop.name}</Link>
+                <Link to={'/crop/' + crop.fullName}>{crop.fullName}</Link>
               </GlowyButton>
               <img
                 style={{ display: 'inline', borderWidth: '1px', maxHeight: '200px' }}
-                alt={crop.name + ' Image'}
-                src={crop.name.toLowerCase() === 'potato' ? potato : crop.name.toLowerCase() === 'wheat' ? wheat : crop.name.toLowerCase() === 'maize' ? maize : crop.name + ' Image'}
+                alt={crop.fullName + ' Image'}
+                src={crop.fullName.toLowerCase() === 'potato' ? potato : crop.fullName.toLowerCase() === 'wheat' ? wheat : crop.fullName.toLowerCase() === 'maize' ? maize : crop.fullName + ' Image'}
               />
             </div>
           </div>

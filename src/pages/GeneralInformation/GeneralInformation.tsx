@@ -4,7 +4,6 @@ import GlowyButton from '../GlowyButton/GlowyButton'
 import {useFarmStore} from '../../Models/useFarmStore'
 import useUserStore from '../../Models/useUserStore'
 import SoilType from '../../Enums/SoilType'
-import useCropsStore from '../../Models/useCropsStore'
 import CellRow from '../CellRow/CellRow';
 import {Link} from 'react-router-dom'
 import {Crop} from "../../Models/Crop";
@@ -31,15 +30,18 @@ const GeneralInformation: FC<GeneralInformationProps> = () => {
     const crops: Crop[] = [
         {
             id: '1',
-            name: 'Potato',
+            fullName: 'Potato',
+            landOccupied: 10
         },
         {
             id: '2',
-            name: 'Maize',
+            fullName: 'Maize',
+            landOccupied: 8
         },
         {
             id: '3',
-            name: 'Wheat',
+            fullName: 'Wheat',
+            landOccupied: 9
         },
     ]
     // const crops = useCropsStore(state => state.values)
@@ -156,7 +158,7 @@ const GeneralInformation: FC<GeneralInformationProps> = () => {
                 <CellRow style={{fontWeight: 'bold'}} values={['Crop', 'Land Under Crop']}/>
                 {
                     crops.map(crop => {
-                        return <CellRow values={[crop.name, crop.landOccupied || '0']}/>
+                        return <CellRow values={[crop.fullName, crop.landOccupied || '0']}/>
                     })
                 }
             </div>
