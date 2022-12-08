@@ -5,6 +5,7 @@ specifiers:
   '@fontsource/roboto': ^4.5.8
   '@graphql-cli/coverage': 2.1.0
   '@graphql-cli/validate': 2.1.0
+  '@heroicons/react': ^2.0.13
   '@react-theming/storybook-addon': ^1.1.7
   '@reduxjs/toolkit': ^1.8.6
   '@salesforce-ux/design-system': ^2.19.0
@@ -52,6 +53,7 @@ specifiers:
   postcss-scss: ^4.0.5
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-images-uploading: ^3.1.7
   react-is: ^18.2.0
   react-props: ^0.0.3
   react-relay: ^14.1.0
@@ -90,6 +92,7 @@ specifiers:
 dependencies:
   '@adobe/react-spectrum': 3.23.0_biqbaboplfbrettd7655fr4n2y
   '@fontsource/roboto': 4.5.8
+  '@heroicons/react': 2.0.13_react@18.2.0
   '@react-theming/storybook-addon': 1.1.7_s3hgbzrha2zawzuegocnyddxca
   '@reduxjs/toolkit': 1.8.6_react@18.2.0
   '@salesforce-ux/design-system': 2.19.0_postcss@8.4.18
@@ -113,6 +116,7 @@ dependencies:
   postcss: 8.4.18
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-images-uploading: 3.1.7_biqbaboplfbrettd7655fr4n2y
   react-is: 18.2.0
   react-props: 0.0.3
   react-relay: 14.1.0_react@18.2.0
@@ -3859,6 +3863,14 @@ packages:
       tslib: 2.2.0
       value-or-promise: 1.0.6
     dev: true
+
+  /@heroicons/react/2.0.13_react@18.2.0:
+    resolution: {integrity: sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@humanwhocodes/config-array/0.11.6:
     resolution: {integrity: sha512-jJr+hPTJYKyDILJfhNSHsjiwXYf26Flsz8DvNndOsHs5pwSnpGUEy8yzF0JYhCEvTDdV2vuOK5tt8BVhwO5/hg==}
@@ -19956,6 +19968,17 @@ packages:
 
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
+    dev: false
+
+  /react-images-uploading/3.1.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-woET50eCezm645iIeP4gCoN7HjdR3T64UXC5l53yd+2vHFp+pwABH8Z/aAO5IXDeC1aP6doQ+K738L701zswAw==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-inspector/5.1.1_react@18.2.0:
