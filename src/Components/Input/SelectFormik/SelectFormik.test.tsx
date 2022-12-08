@@ -4,14 +4,13 @@ import SelectFormik from './SelectFormik';
 
 describe('<SelectFormik />', () => {
   let component;
+  const options = [
+    { label: 'Select an Option', value: ''},
+    { label: 'Option', value: 'option'},
+  ]
 
   beforeEach(() => {
-    component = shallow(
-        <SelectFormik label='label' name='name'>
-          <option value=''>Select</option>
-          <option value='option'>Option</option>
-        </SelectFormik>
-    );
+    component = shallow(<SelectFormik label='label' name='name' options={options}/>)
   });
 
   test('It should mount', () => {
