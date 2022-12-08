@@ -66,7 +66,21 @@
     "lint:scss": "stylelint ./src/**/*.tsx",
     "relay": "npx relay-compiler --watch",
     "graphql:coverage": "graphql coverage",
-    "graphql:validate": "graphql validate"
+    "graphql:validate": "graphql validate",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "fix": "eslint --ext .js,.jsx,.ts,.tsx  --fix ./",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
+    "isready": "pnpm format && pnpm lint && pnpm build",
+    "coverage": "pnpm test -- --coverage",
+    "test:clean": "rimraf ./coverage",
+    "test:e2e": "jest -c e2e/jest.config.js",
+    "test:e2e-alone": "node e2e/puppeteer_standalone.js",
+    "test:e2e-watch": "jest -c e2e/jest.config.js --watch",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "build:serve": "pnpm build && serve -s build",
+    "build:profile": "pnpm build --profile && serve -s build",
+    "analyze": "pnpm build && source-map-explorer 'build/static/js/*.js'",
+    "analyzer": "pnpm build && npx cra-bundle-analyzer"
   },
   "eslintConfig": {},
   "browserslist": {
