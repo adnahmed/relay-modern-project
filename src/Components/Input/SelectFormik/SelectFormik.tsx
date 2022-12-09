@@ -1,7 +1,7 @@
-import { Field, FieldProps, useField } from 'formik';
-import { FC } from 'react';
+import { Field, FieldProps, useField } from 'formik'
+import { FC } from 'react'
 import Select, { Options, OnChangeValue } from 'react-select'
-import Option from '../../../Models/Option';
+import Option from '../../../Models/Option'
 interface FormikSelectProps extends FieldProps {
   options: Options<Option>
   isMulti?: boolean
@@ -30,11 +30,11 @@ const FormikSelect = ({ field, form, options, isMulti = false, label }: FormikSe
 interface FormikSelectWrapperProps {
   isMulti?: boolean
   options: Options<Option>
-  label: string
+  label?: string
   name: string
 }
 
 const SelectFormikWrapper: FC<FormikSelectWrapperProps> = (props) => {
-  return (<Field isMulti={props.isMulti} name={props.name} component={FormikSelect} options={props.options} label={props.label} />)
+  return <Field isMulti={props.isMulti} name={props.name} component={FormikSelect} options={props.options} label={props.label} />
 }
 export default SelectFormikWrapper
