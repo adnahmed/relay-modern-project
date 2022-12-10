@@ -16,5 +16,5 @@ module.exports = {
     },
   ],
   plugins: ['graphql', 'tailwindcss'],
-  extends: ['react-app', 'react-app/jest', 'plugin:storybook/recommended', 'plugin:tailwindcss/recommended'],
+  extends: ['react-app', 'react-app/jest', 'plugin:storybook/recommended', 'plugin:tailwindcss/recommended', 'plugin:relay/recommended'],
 }
