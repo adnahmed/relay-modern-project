@@ -7,6 +7,7 @@ schema {
 
 type Mutation {
     createAccount(user: UserCreateInput!): String!
+    signOut: User!
 }
 
 type Query {
@@ -15,7 +16,6 @@ type Query {
 }
 
 type User {
-    address: String!
     country: Country!
     email: String
     firstName: String!
@@ -280,12 +280,10 @@ enum Country {
 
 enum Role {
     admin
-    expert
-    farmer
+    user
 }
 
 input UserCreateInput {
-    address: String!
     country: Country!
     email: String
     firstName: String!
