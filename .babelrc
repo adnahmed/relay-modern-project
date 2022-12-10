@@ -1,3 +1,7 @@
 {
-  "plugins": ["relay","babel-plugin-macros","babel-plugin-styled-components"]
+  "plugins": [
+    "relay",
+    "babel-plugin-macros",
+    "babel-plugin-styled-components"
+  ]
 }
