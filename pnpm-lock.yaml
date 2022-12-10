@@ -70,6 +70,7 @@ specifiers:
   recoil: ^0.7.6
   redux: ^4.2.0
   relay-compiler: ^14.1.0
+  relay-hooks: ^7.2.0
   relay-runtime: ^14.1.0
   sass: ^1.55.0
   sass-loader: ^13.2.0
@@ -134,6 +135,7 @@ dependencies:
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
   recoil: 0.7.6_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.0
+  relay-hooks: 7.2.0_qq65kx34fjm3hgiyvvxrlwzs2e
   relay-runtime: 14.1.0
   sass: 1.55.0
   storybook-addon-react-router-v6: 0.2.1_hu5tlfuvnptjkt2q6asnin3rsy
@@ -6974,6 +6976,15 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
+  /@restart/hooks/0.3.27_react@18.2.0:
+    resolution: {integrity: sha512-s984xV/EapUIfkjlf8wz9weP2O9TNKR96C68FfMEy2bE69+H4cNv3RD4Mf97lW7Htt7PjZrYTjSC8f3SB9VCXw==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      dequal: 2.0.3
+      react: 18.2.0
+    dev: false
+
   /@rollup/plugin-babel/5.3.1_vyv4jbhmcriklval33ak5sngky:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
     engines: {node: '>= 10.0.0'}
@@ -12827,6 +12838,11 @@ packages:
     resolution: {integrity: sha512-9YLIBURXj4DJMFALxXw9K3Y3rwb5Fk0X5/8ipCzaN84+gKxoHK43tVKRNakCQbiEx07E8Uwhuq21BpUagFhZ8w==}
     engines: {node: '>= 0.6.0'}
     dev: true
+
+  /dequal/2.0.3:
+    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
+    engines: {node: '>=6'}
+    dev: false
 
   /des.js/1.0.1:
     resolution: {integrity: sha512-Q0I4pfFrv2VPd34/vfLrFOoRmlYj3OV50i7fskps1jZWK1kApMWWT9G6RRUeYedLcBDIhnSDaUvJMb3AhUlaEA==}
@@ -20510,6 +20526,20 @@ packages:
     resolution: {integrity: sha512-P8+CXm+Hq96z5NNwYl7hyGo5GgvMZDs9mXBRv7txUbJO4Ql9mXio3+D9EX3VfevRWTuE4ahM37i3Ssx1H604vA==}
     hasBin: true
     dev: true
+
+  /relay-hooks/7.2.0_qq65kx34fjm3hgiyvvxrlwzs2e:
+    resolution: {integrity: sha512-5yBnAtjnxTPXArITn8oCqBqAIkYm06KykNWRY8cJCWFoBqBWbA2ygZ5AfOcsgNZk3cg1cEXxRzqj68vbDrr9TQ==}
+    peerDependencies:
+      react: ^16.9.0 || ^17 || ^18
+      relay-runtime: ^13.0.2 || ^14.0.0
+    dependencies:
+      '@restart/hooks': 0.3.27_react@18.2.0
+      fbjs: 3.0.4
+      react: 18.2.0
+      relay-runtime: 14.1.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
 
   /relay-runtime/14.1.0:
     resolution: {integrity: sha512-t2DR2hZviHrdEQrOvFqwmvRWvZ0SjI/r4bS5f3qvMyXt4g1kw3RTb2RNVmbKGg6zEQhf7Na/brdqE4roApmclQ==}

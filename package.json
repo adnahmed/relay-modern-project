@@ -40,6 +40,7 @@
     "react-use": "^17.4.0",
     "recoil": "^0.7.6",
     "redux": "^4.2.0",
+    "relay-hooks": "^7.2.0",
     "relay-runtime": "^14.1.0",
     "sass": "^1.55.0",
     "storybook-addon-react-router-v6": "^0.2.1",
