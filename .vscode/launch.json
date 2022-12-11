@@ -16,7 +16,6 @@
                 "run",
                 "watch"
             ],
-            "trace": true
         },
         {
             "type": "node",
