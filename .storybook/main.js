@@ -13,6 +13,7 @@ module.exports = {
     '@storybook/addon-interactions',
     'storybook-vscode-component/register',
     'storybook-tailwind-dark-mode',
+    '@storybook/node-logger',
     {
       name: '@storybook/addon-postcss',
       options: {
