@@ -14,12 +14,17 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "allowJs": true,
+    "sourceMap": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
+    "typeRoots": [
+      "node_modules",
+      ".graphql"
+    ],
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
