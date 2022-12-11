@@ -287,7 +287,6 @@ input UserCreateInput {
     country: Country!
     email: String
     firstName: String!
-    id: String
     lastName: String!
     mobilePhone: Int
     password: String!
