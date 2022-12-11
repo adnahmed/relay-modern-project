@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
-
+//@import '../node_modules/react-tabs/style/react-tabs.scss';
 @media (min-width: 768px) {
   :root {
     --columns: 8;
