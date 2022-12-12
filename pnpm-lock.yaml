@@ -49,6 +49,7 @@ specifiers:
   generate-react-cli: ^8.0.1
   graphql: ^16.6.0
   graphql-cli: 4.1.0
+  graphql.macro: ^1.4.2
   gsap: ^3.11.3
   jwt-decode: ^3.1.2
   ms: ^2.1.3
@@ -103,6 +104,7 @@ specifiers:
   stylelint-config-styled-components: ^0.1.1
   stylelint-processor-styled-components: ^1.10.0
   tailwindcss: ^3.2.1
+  timestring: ^6.0.0
   typescript: ^4.8.4
   uuid: ^9.0.0
   validator: ^13.7.0
@@ -164,6 +166,7 @@ dependencies:
   stream-browserify: 3.0.0
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
   styled-theming: 2.2.0
+  timestring: 6.0.0
   typescript: 4.8.4
   uuid: 9.0.0
   validator: 13.7.0
@@ -200,6 +203,7 @@ devDependencies:
   eslint-plugin-tailwindcss: 3.7.1
   graphql: 16.6.0
   graphql-cli: 4.1.0_whgjc3lus4gf53uigqv5nimbda
+  graphql.macro: 1.4.2_graphql@16.6.0
   msw: 0.42.3_typescript@4.8.4
   msw-storybook-addon: 1.6.3_gdk6n3i3z5hmlunk3pgjdscknm
   paths.macro: 3.0.1
@@ -10826,6 +10830,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /babel-literal-to-ast/2.1.0:
+    resolution: {integrity: sha512-CxfpQ0ysQ0bZOhlaPgcWjl79Em16Rhqc6++UAFn0A3duiXmuyhhj8yyl9PYbj0I0CyjrHovdDbp2QEKT7uIMxw==}
+    peerDependencies:
+      '@babel/core': ^7.1.2
+    dependencies:
+      '@babel/parser': 7.19.6
+      '@babel/traverse': 7.19.6
+      '@babel/types': 7.19.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /babel-loader/8.2.5:
     resolution: {integrity: sha512-OSiFfH89LrEMiWd4pLNqGz4CwJDtbs2ZVc+iGu2HrkRfPxId9F2anQj38IxWpmRfsUY0aBZYi1EFcd3mhtRMLQ==}
     engines: {node: '>= 8.9'}
@@ -14962,6 +14978,16 @@ packages:
       iterall: 1.3.0
     dev: true
 
+  /graphql-tag/2.12.6_graphql@16.6.0:
+    resolution: {integrity: sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
+      tslib: 2.4.1
+    dev: true
+
   /graphql-type-json/0.3.2_graphql@15.3.0:
     resolution: {integrity: sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==}
     peerDependencies:
@@ -14977,6 +15003,19 @@ packages:
       graphql: '>=0.11 <=15'
     dependencies:
       graphql: 16.6.0
+    dev: true
+
+  /graphql.macro/1.4.2_graphql@16.6.0:
+    resolution: {integrity: sha512-vcIaStPgS65gp5i1M3DSBimNVkyus0Z7k4VObWAyZS319tKlpX/TEIJSWTgOZU5k8dn4RRzGoS/elQhX2E6yBw==}
+    dependencies:
+      '@babel/template': 7.18.10
+      babel-literal-to-ast: 2.1.0
+      babel-plugin-macros: 2.8.0
+      graphql-tag: 2.12.6_graphql@16.6.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - graphql
+      - supports-color
     dev: true
 
   /graphql/15.3.0:
@@ -22737,6 +22776,11 @@ packages:
     engines: {node: '>=0.6.0'}
     dependencies:
       setimmediate: 1.0.5
+
+  /timestring/6.0.0:
+    resolution: {integrity: sha512-wMctrWD2HZZLuIlchlkE2dfXJh7J2KDI9Dwl+2abPYg0mswQHfOAyQW3jJg1pY5VfttSINZuKcXoB3FGypVklA==}
+    engines: {node: '>=8'}
+    dev: false
 
   /tiny-warning/1.0.3:
     resolution: {integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==}
