@@ -14,7 +14,7 @@ import {
   urlMiddleware,
 } from 'react-relay-network-modern'
 import { Cookies } from 'react-cookie'
-import env from '../env'
+import env from './env'
 
 const cookies = new Cookies()
 const source = new RecordSource()
@@ -49,21 +49,21 @@ const network = new RelayNetworkLayer(
     authMiddleware({
       token: () => cookies.get('jwt'),
       /* TODO: Implement Expires and Refresh Token
-                      tokenRefreshPromise: (req) => {
-                                      console.log('[client.ts] resolve token refresh', req)
-                                      return fetch(env.SCHEMA_ENDPOINT + '/jwt/refresh')
-                                        .then((res) => res.json())
-                                        .then((json) => {
-                                          const token = json.token
-                                          const expires = json.expires
-                              
-                                          cookies.set('jwt', token, { httpOnly: true, sameSite: true, expires: expires })
-                                          // store.set('jwt', token);
-                                          return token
-                                        })
-                                        .catch((err) => console.log('[client.ts] ERROR can not refresh token', err))
-                    },
-                                         */
+                            tokenRefreshPromise: (req) => {
+                                            console.log('[client.ts] resolve token refresh', req)
+                                            return fetch(env.SCHEMA_ENDPOINT + '/jwt/refresh')
+                                              .then((res) => res.json())
+                                              .then((json) => {
+                                                const token = json.token
+                                                const expires = json.expires
+                                    
+                                                cookies.set('jwt', token, { httpOnly: true, sameSite: true, expires: expires })
+                                                // store.set('jwt', token);
+                                                return token
+                                              })
+                                              .catch((err) => console.log('[client.ts] ERROR can not refresh token', err))
+                          },
+                                               */
       allowEmptyToken: true,
     }),
     progressMiddleware({
