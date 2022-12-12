@@ -1,12 +1,14 @@
 import { Field, FieldProps, useField } from 'formik'
 import { FC } from 'react'
-import Select, { Options, OnChangeValue } from 'react-select'
+import Select, { OnChangeValue, Options } from 'react-select'
 import Option from '../../../Models/Option'
+
 interface FormikSelectProps extends FieldProps {
   options: Options<Option>
   isMulti?: boolean
   label: string
 }
+
 const FormikSelect = ({ field, form, options, isMulti = false, label }: FormikSelectProps) => {
   const [_, meta] = useField(field.name)
   const onChange = (option: OnChangeValue<Option | Option[], boolean>) => {
@@ -22,11 +24,24 @@ const FormikSelect = ({ field, form, options, isMulti = false, label }: FormikSe
   return (
     <div>
       <label htmlFor={field.name}>{label}</label>
-      <Select name={field.name} value={getValue()} onChange={onChange} options={options} isMulti={isMulti} />
+      <Select
+        styles={{
+          control: (baseStyles, state) => ({
+            ...baseStyles,
+            maxWidth: 'max-content',
+          }),
+        }}
+        name={field.name}
+        value={getValue()}
+        onChange={onChange}
+        options={options}
+        isMulti={isMulti}
+      />
       {meta?.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </div>
   )
 }
+
 interface FormikSelectWrapperProps {
   isMulti?: boolean
   options: Options<Option>

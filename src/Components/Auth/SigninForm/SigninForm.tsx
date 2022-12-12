@@ -1,20 +1,21 @@
-import React, { FC } from 'react'
+import React, { FC, Ref, useRef } from 'react'
 import './Signin.scss'
 import { Form, Formik, useField, useFormikContext } from 'formik'
 import * as yup from 'yup'
-import TextInputFromik from '../Input/TextInputFormik/TextInputFormik'
+import TextInputFromik from '../../Input/TextInputFormik/TextInputFormik'
 import { Link, useNavigate } from 'react-router-dom'
 import { fetchQuery } from 'relay-hooks'
 import isMobilePhone from 'validator/lib/isMobilePhone'
-import SignInQuery from '../../Queries/Auth/SignIn.graphql'
-import { SignInQuery$variables } from '../../Queries/Auth/__generated__/SignInQuery.graphql'
-import environment from '../../RelayEnvironment'
-import jwt_decode, { InvalidTokenError, JwtPayload } from 'jwt-decode'
-import env from '../../env'
-import timestring from 'timestring'
+import SignInQuery from '../../../Queries/Auth/SignIn.graphql'
+import { SignInQuery$variables } from '../../../Queries/Auth/__generated__/SignInQuery.graphql'
+import environment from '../../../RelayEnvironment'
 import { useCookies } from 'react-cookie'
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { handleAuth } from '../helpers'
 
-interface SignInProps {}
+interface SignInProps {
+  initialRef: Ref<any>
+}
 
 let isEmail = (value: string) => yup.string().email().isValidSync(value)
 let isMobile = (value: string) => isMobilePhone(value)
@@ -71,11 +72,8 @@ const Email: FC<EmailOrMobilePhoneInputProp> = (props) => {
 }
 
 // REFACTOR END
-interface SignInTokenPayload extends JwtPayload {
-  id: string
-}
 
-const SigninForm: FC<SignInProps> = (props) => {
+export const SigninForm: FC<SignInProps> = (props) => {
   const initialValues = {
     mobileOrEmail: '',
     password: '',
@@ -85,9 +83,7 @@ const SigninForm: FC<SignInProps> = (props) => {
   const [cookies, setCookies] = useCookies(['jwt', 'uid'])
   const navigate = useNavigate()
   return (
-    <>
-      <h1>Welcome to Kesan Diary</h1>
-      <h1>Sign In</h1>
+    <div className="Form">
       <Formik
         initialValues={initialValues}
         validationSchema={yup.object({
@@ -105,33 +101,13 @@ const SigninForm: FC<SignInProps> = (props) => {
           const observable = fetchQuery(environment, SignInQuery, SignInQueryValues)
           observable.subscribe({
             complete: () => {},
-            next: (value) => {
-              try {
-                const token: string = value.login
-                const decoded = jwt_decode<SignInTokenPayload>(token)
-                const expires: number = decoded?.sub ? timestring(decoded?.sub) : env.JWT_EXPIRE
-                setCookies('jwt', token, {
-                  httpOnly: true,
-                  sameSite: true,
-                  maxAge: expires,
-                  path: '/',
-                })
-                setCookies('uid', decoded.id, {
-                  sameSite: true,
-                  maxAge: expires,
-                  path: '/',
-                })
-                navigate('/')
-              } catch (err) {
-                if (err instanceof InvalidTokenError) console.log('Invalid Token Recieved')
-              }
-            },
+            next: (values) => handleAuth(values, setCookies, navigate),
           })
           setSubmitting(false)
         }}
       >
         <Form>
-          <TextInputFromik label="Email Or Phone Number" name="mobileOrEmail" placeholder="jane@gmail.com" />
+          <TextInputFromik ref={props.initialRef} label="Email Or Phone Number" name="mobileOrEmail" placeholder="jane@gmail.com" />
           <TextInputFromik type="password" label="Password" name="password" hidden />
           <Email hidden name="email" />
           <MobilePhone name="mobilePhone" hidden />
@@ -143,8 +119,28 @@ const SigninForm: FC<SignInProps> = (props) => {
           <button type="submit">Sign In</button>
         </Form>
       </Formik>
-    </>
+    </div>
   )
 }
 
-export default SigninForm
+export const SigninFormModal = (props) => {
+  const { isOpen: isOpenSignIn, onOpen: onOpenSignIn, onClose: onCloseSignIn } = useDisclosure()
+  const initialRef = useRef(null)
+  return (
+    <>
+      <button className="Title TitleAction" onClick={onOpenSignIn}>
+        Sign In
+      </button>
+      <Modal initialFocusRef={initialRef} isOpen={isOpenSignIn} size="xs" onClose={onCloseSignIn} isCentered>
+        <ModalOverlay backdropFilter="blur(10px) hue-rotate(90deg)" bg="blackAlpha.300" />
+        <ModalContent>
+          <ModalHeader>Sign In</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <SigninForm initialRef={initialRef} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}

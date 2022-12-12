@@ -1,29 +1,21 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import './IndexPage.scss'
-import logo from './diary.webp'
-import { useFarmStore } from '../../Models/useFarmStore'
-import TopBar from '../../Components/TopBar/TopBar'
+import { SigninFormModal } from '../../Components/Auth/SigninForm/SigninForm'
+import { SignUpFormModal } from '../../Components/Auth/SignupForm/SignupForm'
 
 export interface IndexPageProps {}
 
 const IndexPage: FC<IndexPageProps> = () => {
-  const farmName = useFarmStore((state) => state.name)
-  const farmAddress = useFarmStore((state) => state.address)
-  const setFarmAddress = useFarmStore((state) => state.setFarmAddress)
-  const setFarmName = useFarmStore((state) => state.setFarmName)
-  useEffect(() => {
-    setFarmName({ target: { value: 'Kauser Model Agriculture Farm' } })
-    setFarmAddress({ target: { value: 'Jhambra Sharqi, Mianwali' } })
-  })
   return (
-    <div className="IndexPage">
-      <div className="TopBarWrapper">
-        <TopBar />
+    <>
+      <div className="container">
+        <div className="Title">
+          <span className="TitleMain">Welcome to Kesan Diary</span>
+          <span className="TitleDescription">Lets get you up and running</span>
+          <SigninFormModal />
+          <SignUpFormModal />
+        </div>
       </div>
-      <header>
-        Kesan Diary
-        <img src={logo} />
-      </header>
       <footer>
         <div className="ProjectDescription">
           <span>
@@ -36,13 +28,12 @@ const IndexPage: FC<IndexPageProps> = () => {
             Under Supervision of <strong>Mrs. Tayyaba</strong>
           </span>
           <span>
-            {' '}
             Submitted to <strong>Barani Institute of Information Technology (BIIT) affliated with PMAS Arid Agriculture University, Rawalpindi Pakistan</strong>
           </span>
         </div>
         <div className="Copyright"> &copy; Copyright Reserved 2022</div>
       </footer>
-    </div>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 @media (max-width: 20rem) {
   $grid-columns: 6;
 }
+
 $grid-columns: 12;
 $primary-theme: #27A9FF;
 $primary-color: white;
@@ -14,42 +15,8 @@ $primary-color: white;
 .IndexPage {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-   & > * {
+
+  & > * {
     grid-column: 1 / span $grid-columns;
-  }
-  header {
-  @include  flexAndCenter;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    img {
-      align-self: flex-end;
-      width: 50%;
-    }
-  }
-  .ProfessionSelection {
-    @include flexAndCenter;
-    .ProfessionCard {
-    }
-  }
-
-  .TopBarWrapper {
-  }
-
-  footer {
-    @include flexAndCenter;
-    flex-direction: column;
-    margin-top: 4em;
-    background: $primary-theme;
-    color: $primary-color;
-    text-align: left;
-    line-height: 1.6;
-    padding: 1em;
-    span {
-      display: block;
-    }
-    .Copyright {
-      align-self: end;
-    }
   }
 }

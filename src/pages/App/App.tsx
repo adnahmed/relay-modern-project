@@ -30,8 +30,6 @@ import TableHead from '../TableHead/TableHead'
 import HarvestDate from '../HarvestDate/HarvestDate'
 import GeneralInformation from '../GeneralInformation/GeneralInformation'
 import YearSelect from '../YearSelect/YearSelect'
-import SignUpForm from '../../Components/SignupForm/SignupForm'
-import SignInForm from '../../Components/SigninForm/SigninForm'
 import AdministratorDashboard from '../../Components/AdministratorDashboard/AdministratorDashboard'
 import ManageAlerts from '../../Components/ManageAlerts/ManageAlerts'
 import { useCookies } from 'react-cookie'
@@ -271,8 +269,6 @@ const App: FC<AppProps> = (props) => {
       <Routes>
         <Route path="/">
           <Route index element={<IndexPage />} />
-          <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/signin" element={<SignInForm />} />
           <Route path="*" element={<UnknownPage />} />
         </Route>
       </Routes>
