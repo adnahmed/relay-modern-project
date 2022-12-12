@@ -1,15 +1,15 @@
 import { FC } from 'react'
-import { Formik, Form } from 'formik'
+import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import TextInputFromik from '../Input/TextInputFormik/TextInputFormik'
 import SelectFormik from '../Input/SelectFormik/SelectFormik'
 import CheckboxFormik from '../Input/CheckboxFormik/CheckboxFormik'
 import './SignupForm.scss'
-import { useAuth } from '../../Hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
-import ALL_CITIES from '../../Models/Constant/AllCountries';
+import ALL_CITIES from '../../Models/Constant/AllCountries'
 
 interface SignupFormProps {}
+
 const InputValues: Record<string, string | boolean> = {
   firstName: '',
   lastName: '',
@@ -24,7 +24,6 @@ const InputValues: Record<string, string | boolean> = {
   acceptedTerms: false,
 }
 const SignupForm: FC<SignupFormProps> = () => {
-  const auth = useAuth()
   const navigate = useNavigate()
   return (
     <>
@@ -42,7 +41,7 @@ const SignupForm: FC<SignupFormProps> = () => {
           acceptedTerms: Yup.boolean().required('Required').oneOf([true, false], 'You must accept Terms and Conditions.'),
         })}
         onSubmit={(values, actions) => {
-          auth?.signin('addna', 'add')
+          // TODO: Use Relay useQuery or something to Call SignUpQuery and save the result to Cookie
           navigate('/')
           actions.setSubmitting(false)
         }}
@@ -55,7 +54,7 @@ const SignupForm: FC<SignupFormProps> = () => {
             <TextInputFromik label="Password" name="newPassword" type="text" hidden />
             <TextInputFromik label="Repeat Password" name="repeatPassword" type="text" hidden />
             <TextInputFromik label="Address" name="permanentAddress" type="text" />
-            <SelectFormik label="City" name="city" options={ALL_CITIES}/>
+            <SelectFormik label="City" name="city" options={ALL_CITIES} />
             <CheckboxFormik name="acceptedTerms">
               I accept the <a className="TermsAndConditions">Terms and Conditions</a>
             </CheckboxFormik>

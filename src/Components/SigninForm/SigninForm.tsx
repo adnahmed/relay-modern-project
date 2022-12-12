@@ -3,16 +3,16 @@ import './Signin.scss'
 import { Form, Formik, useField, useFormikContext } from 'formik'
 import * as yup from 'yup'
 import TextInputFromik from '../Input/TextInputFormik/TextInputFormik'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { fetchQuery } from 'relay-hooks'
 import isMobilePhone from 'validator/lib/isMobilePhone'
 import SignInQuery from '../../Queries/Auth/SignIn.graphql'
 import { SignInQuery$variables } from '../../Queries/Auth/__generated__/SignInQuery.graphql'
 import environment from '../../RelayEnvironment'
-import { Cookies } from 'react-cookie'
 import jwt_decode, { InvalidTokenError, JwtPayload } from 'jwt-decode'
-import env from '../../../env'
-import ms from 'ms'
+import env from '../../env'
+import timestring from 'timestring'
+import { useCookies } from 'react-cookie'
 
 interface SignInProps {}
 
@@ -76,13 +76,14 @@ interface SignInTokenPayload extends JwtPayload {
 }
 
 const SigninForm: FC<SignInProps> = (props) => {
-  const cookies = new Cookies()
   const initialValues = {
     mobileOrEmail: '',
     password: '',
     mobilePhone: 0,
     email: '',
   }
+  const [cookies, setCookies] = useCookies(['jwt', 'uid'])
+  const navigate = useNavigate()
   return (
     <>
       <h1>Welcome to Kesan Diary</h1>
@@ -108,17 +109,19 @@ const SigninForm: FC<SignInProps> = (props) => {
               try {
                 const token: string = value.login
                 const decoded = jwt_decode<SignInTokenPayload>(token)
-                const expires: number = decoded?.sub ? ms(decoded?.sub) : env.JWT_EXPIRE
-                cookies.set('jwt', token, {
+                const expires: number = decoded?.sub ? timestring(decoded?.sub) : env.JWT_EXPIRE
+                setCookies('jwt', token, {
                   httpOnly: true,
                   sameSite: true,
                   maxAge: expires,
+                  path: '/',
                 })
-                cookies.set('uid', decoded.id, {
-                  httpOnly: true,
+                setCookies('uid', decoded.id, {
                   sameSite: true,
                   maxAge: expires,
+                  path: '/',
                 })
+                navigate('/')
               } catch (err) {
                 if (err instanceof InvalidTokenError) console.log('Invalid Token Recieved')
               }

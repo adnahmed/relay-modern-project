@@ -1,5 +1,4 @@
-import './App.css'
-import React from 'react'
+import './App.scss'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import CropCard from '../CropCard/CropCard'
 import LandPreparation from '../LandPreparation/LandPreparation'
@@ -13,7 +12,7 @@ import Irrigation from '../Irrigation/Irrigation'
 import TopicDashboard from '../TopicDashboard/TopicDashboard'
 import General from '../General/General'
 import NoMatchCrop from '../NoMatchCrop/NoMatchCrop'
-import { CropYear, CropType } from '../CropYear/CropYear'
+import { CropType, CropYear } from '../CropYear/CropYear'
 import Sowing from '../Sowing/Sowing'
 import LaborManagement from '../LaborManagement/LaborManagement'
 import IntegratedPestManagement from '../IntegratedPestManagement/IntegratedPestManagement'
@@ -31,21 +30,27 @@ import TableHead from '../TableHead/TableHead'
 import HarvestDate from '../HarvestDate/HarvestDate'
 import GeneralInformation from '../GeneralInformation/GeneralInformation'
 import YearSelect from '../YearSelect/YearSelect'
-import { useAuth } from '../../Hooks/useAuth'
-import SignupForm from '../../Components/SignupForm/SignupForm'
-import SigninForm from '../../Components/SigninForm/SigninForm'
+import SignUpForm from '../../Components/SignupForm/SignupForm'
+import SignInForm from '../../Components/SigninForm/SigninForm'
 import AdministratorDashboard from '../../Components/AdministratorDashboard/AdministratorDashboard'
+import ManageAlerts from '../../Components/ManageAlerts/ManageAlerts'
+import { useCookies } from 'react-cookie'
+import { FC } from 'react'
+
+interface AppProps {}
 
 /**
- * 
+ *
  * Administrator and Farmer create accounts.
  - Farmer adds description and Location of Land.
  - Crops get recommended for current season and Land Description.
- * 
+ *
  */
-function App() {
-  const auth = useAuth()
-  if (auth?.user)
+
+const App: FC<AppProps> = (props) => {
+  const [cookies] = useCookies(['uid'])
+  if (cookies.uid)
+    // TODO: Fetch User Here if success then ... else ...
     return (
       <>
         <Routes>
@@ -252,6 +257,10 @@ function App() {
                 <Route path="*" element={<NoMatchCrop />} />
               </Route>
             </Route>
+            <Route path="/admin/*" loader={(args) => {}}>
+              <Route index element={<AdministratorDashboard />} />
+              <Route path="alerts" element={<ManageAlerts />} />
+            </Route>
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
@@ -262,9 +271,8 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<IndexPage />} />
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/signin" element={<SigninForm />} />
-          <Route path="/admin" element={<AdministratorDashboard />}/>
+          <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/signin" element={<SignInForm />} />
           <Route path="*" element={<UnknownPage />} />
         </Route>
       </Routes>

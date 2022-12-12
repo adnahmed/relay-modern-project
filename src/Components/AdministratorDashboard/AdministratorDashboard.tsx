@@ -189,7 +189,7 @@ const AdministratorDashboard: FC<AdministratorDashboardProps> = () => {
         </VCard>
       )}
       <HCard>
-        <Link to="/alerts">Manage Alerts</Link>
+        <Link to="alerts">Manage Alerts</Link>
       </HCard>
       <VCard>
         <HCard onClick={() => setShowChatBox(!showChatBox)}>
@@ -220,7 +220,6 @@ interface MessageBoxProps {
 }
 
 const MessageBox: FC<MessageBoxProps> = ({ message }) => {
-
   useEffect(() => {
     message.seen = new Date()
   })
